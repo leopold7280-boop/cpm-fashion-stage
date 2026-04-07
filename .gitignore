@@ -8,6 +8,10 @@ PHOTO & VIDEO/Designerpool/*.jpg
 # PDF презентации и бренд-буки (большие файлы)
 *.pdf
 
+# Видео (слишком большие для GitHub)
+*.mov
+*.mp4
+
 # Системные файлы
 .DS_Store
 **/.DS_Store
