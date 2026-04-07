@@ -1,0 +1,13 @@
+# Оригинальные большие фото (только web-версии нужны)
+PHOTO & VIDEO/Opening show/*.jpg
+PHOTO & VIDEO/Selected/*.jpg
+PHOTO & VIDEO/One brand show/*.jpg
+PHOTO & VIDEO/Menswear/*.jpg
+PHOTO & VIDEO/Designerpool/*.jpg
+
+# PDF презентации и бренд-буки (большие файлы)
+*.pdf
+
+# Системные файлы
+.DS_Store
+**/.DS_Store

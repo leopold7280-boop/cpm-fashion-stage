@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPM Fashion Stage 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Noto+Sans+Arabic:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:  #080808;
+      --dark:   #111111;
+      --dark2:  #1a1a1a;
+      --dark3:  #222222;
+      --gold:   #c9a96e;
+      --gold-l: #e8c887;
+      --gold-d: #9b7d4a;
+      --gold-grad: linear-gradient(135deg, #c9a96e 0%, #e8c887 50%, #c9a96e 100%);
+      --white:  #f5f0e8;
+      --gray:   #888880;
+      --gray-l: #cccccc;
+      --serif:  'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+      --sans:   'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+      --arabic: 'Noto Sans Arabic', 'Arial', sans-serif;
+      --chinese:'Noto Sans SC', 'PingFang SC', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    html[lang="ar"] body { font-family: var(--arabic); }
+    html[lang="zh"] body { font-family: var(--chinese); }
+
+    /* ───── NAV ───── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 22px 52px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background .35s, padding .35s, border-color .35s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(8,8,8,.96);
+      backdrop-filter: blur(12px);
+      padding: 14px 52px;
+      border-color: rgba(201,169,110,.12);
+    }
+    .nav-logo img { height: 40px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      color: var(--gray-l); text-decoration: none;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: .18em; text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .lang-switcher { display: flex; gap: 2px; align-items: center; }
+    .lang-btn {
+      background: none; border: none; color: var(--gray);
+      font-size: 9.5px; font-weight: 500; letter-spacing: .12em;
+      text-transform: uppercase; cursor: pointer;
+      padding: 5px 7px; font-family: var(--sans);
+      transition: color .2s; border-bottom: 1px solid transparent;
+    }
+    .lang-btn:hover { color: var(--gray-l); }
+    .lang-btn.active { color: var(--gold); border-color: var(--gold); }
+
+    html[dir="rtl"] nav { flex-direction: row-reverse; }
+    html[dir="rtl"] .nav-links { flex-direction: row-reverse; }
+    html[dir="rtl"] .lang-btn { font-family: var(--arabic); }
+
+    /* ───── HERO ───── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      position: relative; overflow: hidden;
+      padding: 130px 24px 90px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 55% at 50% 30%, rgba(103,36,113,.18) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 35% at 80% 70%, rgba(201,169,110,.06) 0%, transparent 60%),
+        linear-gradient(180deg, #0e060f 0%, #080808 55%, #06080f 100%);
+    }
+    .hero-photo-bg {
+      position: absolute; inset: 0;
+      background: url('PHOTO & VIDEO/Opening show/web/0216_BAB0881.jpg') center 30% / cover no-repeat;
+      opacity: 0.09;
+      pointer-events: none;
+    }
+    .hero-hex-r {
+      position: absolute; right: -8%; top: 50%;
+      transform: translateY(-50%);
+      width: 55vw; max-width: 680px;
+      opacity: .045; pointer-events: none;
+    }
+    .hero-hex-l {
+      position: absolute; left: -12%; top: 18%;
+      width: 38vw; max-width: 480px;
+      opacity: .03; pointer-events: none;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 920px; width: 100%;
+    }
+    .hero-eyebrow {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: .32em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 30px;
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(58px, 10vw, 128px);
+      font-weight: 300; line-height: .92;
+      letter-spacing: -.02em; margin-bottom: 18px;
+      background: var(--gold-grad);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    html[lang="ar"] .hero-title,
+    html[lang="zh"] .hero-title {
+      font-family: inherit;
+      font-size: clamp(38px, 7vw, 88px);
+    }
+    .hero-subtitle {
+      font-family: var(--serif);
+      font-size: clamp(17px, 2.4vw, 26px);
+      font-weight: 300; font-style: italic;
+      color: var(--gray-l); margin-bottom: 52px; line-height: 1.45;
+    }
+    html[lang="ar"] .hero-subtitle,
+    html[lang="zh"] .hero-subtitle { font-family: inherit; font-style: normal; }
+    .hero-divider {
+      width: 56px; height: 1px;
+      background: var(--gold-grad);
+      margin: 0 auto 34px;
+    }
+    .hero-meta { display: flex; flex-direction: column; align-items: center; gap: 7px; margin-bottom: 56px; }
+    .hero-date { font-size: 13px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; }
+    .hero-venue { font-size: 11px; letter-spacing: .16em; color: var(--gray); text-transform: uppercase; }
+
+    /* ───── BUTTONS ───── */
+    .btn {
+      display: inline-block; padding: 15px 46px;
+      border: 1px solid var(--gold); color: var(--gold);
+      text-decoration: none; font-size: 10px; font-weight: 500;
+      letter-spacing: .26em; text-transform: uppercase;
+      transition: background .25s, color .25s;
+      background: transparent; cursor: pointer; font-family: var(--sans);
+    }
+    .btn:hover { background: var(--gold); color: var(--black); }
+    html[lang="ar"] .btn { font-family: var(--arabic); }
+    html[lang="zh"] .btn { font-family: var(--chinese); }
+
+    /* ───── TICKER ───── */
+    .ticker {
+      background: var(--dark);
+      border-top: 1px solid rgba(201,169,110,.18);
+      border-bottom: 1px solid rgba(201,169,110,.18);
+      overflow: hidden; padding: 11px 0;
+    }
+    .ticker-track {
+      display: flex; white-space: nowrap;
+      animation: ticker 24s linear infinite;
+    }
+    .ticker-item { font-size: 9.5px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); padding: 0 28px; flex-shrink: 0; }
+    .ticker-dot { color: var(--gold-d); padding: 0 4px; flex-shrink: 0; font-size: 9.5px; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ───── SECTIONS ───── */
+    section { padding: 110px 52px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .s-label {
+      font-size: 9.5px; font-weight: 500; letter-spacing: .36em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 18px;
+    }
+    .s-title {
+      font-family: var(--serif);
+      font-size: clamp(34px, 5vw, 70px);
+      font-weight: 300; line-height: 1.08; margin-bottom: 24px;
+    }
+    html[lang="ar"] .s-title,
+    html[lang="zh"] .s-title { font-family: inherit; font-size: clamp(26px, 4vw, 52px); }
+    .s-text { font-size: 15px; line-height: 1.85; color: var(--gray-l); max-width: 580px; }
+    .gold-line { width: 44px; height: 1px; background: var(--gold); margin-bottom: 30px; }
+    html[dir="rtl"] .gold-line { margin-right: 0; }
+
+    /* ───── ABOUT ───── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 90px; align-items: center;
+    }
+    .about-hex { width: 100%; max-width: 420px; opacity: .92; }
+    .about-feats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; margin-top: 52px;
+      background: rgba(201,169,110,.12);
+    }
+    .feat {
+      background: var(--dark2); padding: 22px 24px;
+    }
+    .feat-val {
+      font-family: var(--serif); font-size: 32px; font-weight: 300;
+      color: var(--gold-l); line-height: 1; margin-bottom: 4px;
+    }
+    html[lang="ar"] .feat-val,
+    html[lang="zh"] .feat-val { font-family: inherit; font-size: 26px; }
+    .feat-lbl { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--gray); }
+
+    /* ───── FORMATS ───── */
+    .formats-section { background: var(--dark); }
+    .formats-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: rgba(201,169,110,.12);
+      margin-top: 64px;
+    }
+    .fcard {
+      background: var(--dark2); padding: 46px 38px;
+      position: relative; transition: background .3s;
+      display: flex; flex-direction: column;
+    }
+    .fcard:hover { background: var(--dark3); }
+    .fcard.featured { background: var(--dark3); }
+    .fcard.featured::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--gold-grad);
+    }
+    .fcard-badge {
+      display: inline-block;
+      font-size: 8.5px; font-weight: 600; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--black);
+      background: var(--gold); padding: 4px 10px;
+      margin-bottom: 22px; align-self: flex-start;
+    }
+    .fcard-name {
+      font-family: var(--serif); font-size: 30px; font-weight: 300;
+      line-height: 1.1; margin-bottom: 14px; color: var(--white);
+    }
+    html[lang="ar"] .fcard-name,
+    html[lang="zh"] .fcard-name { font-family: inherit; font-size: 22px; }
+    .fcard-date { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .fcard-desc { font-size: 13.5px; color: var(--gray-l); line-height: 1.75; margin-bottom: 28px; flex-grow: 1; }
+    .fcard-divider { width: 100%; height: 1px; background: rgba(201,169,110,.12); margin-bottom: 28px; }
+    .fcard-looks { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
+    .fcard-num { font-family: var(--serif); font-size: 40px; font-weight: 300; color: var(--gold-l); line-height: 1; }
+    html[lang="ar"] .fcard-num,
+    html[lang="zh"] .fcard-num { font-family: inherit; font-size: 30px; }
+    .fcard-looks-lbl { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); }
+    .fcard-price { font-size: 12.5px; color: var(--gray-l); margin-bottom: 28px; }
+    .fcard-price strong { font-size: 20px; font-weight: 500; color: var(--white); letter-spacing: -.02em; }
+    .fcard-price em { font-style: normal; font-size: 11px; color: var(--gray); margin-left: 4px; }
+    html[dir="rtl"] .fcard-price em { margin-left: 0; margin-right: 4px; }
+    .fcard-inc { list-style: none; margin-bottom: 38px; }
+    .fcard-inc li {
+      font-size: 11.5px; color: var(--gray);
+      padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,.05);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .fcard-inc li::before { content: '—'; color: var(--gold-d); flex-shrink: 0; }
+    html[dir="rtl"] .fcard-inc li { flex-direction: row-reverse; }
+
+    /* ───── STATS ───── */
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border: 1px solid rgba(201,169,110,.14);
+      margin-top: 80px;
+    }
+    .stat {
+      padding: 48px 36px; text-align: center;
+      border-right: 1px solid rgba(201,169,110,.14);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-n {
+      font-family: var(--serif);
+      font-size: clamp(46px, 5vw, 70px);
+      font-weight: 300; line-height: 1;
+      background: var(--gold-grad);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 10px;
+    }
+    html[lang="ar"] .stat-n,
+    html[lang="zh"] .stat-n { font-family: inherit; }
+    .stat-lbl { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--gray); }
+
+    /* ───── MEDIA ───── */
+    /* ───── MEDIA SECTION ───── */
+    .media-section { background: var(--dark); }
+    .media-intro { font-size: 15px; line-height: 1.85; color: var(--gray-l); max-width: 640px; margin-bottom: 16px; }
+    .media-note {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 48px;
+    }
+    .media-note::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); flex-shrink: 0; }
+    html[dir="rtl"] .media-note::before { order: 2; }
+
+    /* ───── GALLERY TABS ───── */
+    .gallery-tabs {
+      display: flex; flex-wrap: wrap; gap: 2px;
+      margin-bottom: 3px;
+    }
+    .g-tab {
+      background: var(--dark2); border: 1px solid rgba(201,169,110,.12);
+      color: var(--gray); font-family: var(--sans);
+      font-size: 9.5px; font-weight: 500; letter-spacing: .16em;
+      text-transform: uppercase; padding: 12px 20px;
+      cursor: pointer; transition: all .2s; white-space: nowrap;
+    }
+    html[lang="ar"] .g-tab,
+    html[lang="zh"] .g-tab { font-family: inherit; }
+    .g-tab:hover { color: var(--white); border-color: rgba(201,169,110,.25); }
+    .g-tab.active {
+      background: var(--dark3); color: var(--gold);
+      border-color: rgba(201,169,110,.4);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    /* ───── GALLERY PANEL ───── */
+    .g-panel { display: none; }
+    .g-panel.active { display: block; }
+
+    /* ───── PHOTO MASONRY GRID ───── */
+    .photo-grid {
+      columns: 4 180px; column-gap: 3px;
+    }
+    .photo-item {
+      break-inside: avoid; margin-bottom: 3px;
+      position: relative; overflow: hidden; cursor: zoom-in;
+    }
+    .photo-item img {
+      width: 100%; display: block;
+      transition: transform .55s cubic-bezier(.25,.46,.45,.94);
+    }
+    .photo-item:hover img { transform: scale(1.05); }
+    .photo-item::after {
+      content: ''; position: absolute; inset: 0;
+      border: 1px solid rgba(201,169,110,0);
+      transition: border-color .3s; pointer-events: none;
+    }
+    .photo-item:hover::after { border-color: rgba(201,169,110,.55); }
+
+    /* ───── LIGHTBOX ───── */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,.96);
+      align-items: center; justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lb-img {
+      max-width: 90vw; max-height: 88vh;
+      object-fit: contain;
+      border: 1px solid rgba(201,169,110,.12);
+    }
+    .lb-close {
+      position: absolute; top: 24px; right: 32px;
+      font-size: 32px; color: var(--gray); cursor: pointer;
+      background: none; border: none; transition: color .2s; line-height: 1;
+    }
+    .lb-close:hover { color: var(--gold); }
+    .lb-prev, .lb-next {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(8,8,8,.7); border: 1px solid rgba(201,169,110,.2);
+      color: var(--gray-l); font-size: 24px;
+      width: 52px; height: 52px; cursor: pointer;
+      transition: all .2s; display: flex; align-items: center; justify-content: center;
+    }
+    .lb-prev { left: 24px; }
+    .lb-next { right: 24px; }
+    .lb-prev:hover, .lb-next:hover { color: var(--gold); border-color: var(--gold); background: rgba(201,169,110,.08); }
+    .lb-counter {
+      position: absolute; bottom: 24px; left: 0; right: 0;
+      text-align: center; font-size: 10px; letter-spacing: .2em;
+      color: rgba(201,169,110,.45);
+    }
+
+    /* ───── VIDEO PLAYER ───── */
+    .video-wrap {
+      margin-top: 56px;
+      border: 1px solid rgba(201,169,110,.15);
+      background: #000;
+    }
+    .video-wrap video { width: 100%; max-height: 62vh; display: block; }
+    .video-label {
+      padding: 16px 24px;
+      border-top: 1px solid rgba(201,169,110,.1);
+      font-size: 10px; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--gold-d);
+    }
+
+    /* ───── MEDIA DELIVER BLOCK ───── */
+    .media-deliver {
+      margin-top: 3px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;
+    }
+    .md-item {
+      background: var(--dark2); padding: 28px 30px;
+      border: 1px solid rgba(201,169,110,.1);
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .md-icon { font-size: 22px; margin-bottom: 4px; }
+    .md-title { font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--white); }
+    .md-text { font-size: 12.5px; color: var(--gray); line-height: 1.65; }
+
+    @media (max-width: 768px) {
+      .photo-grid { columns: 2 140px; }
+      .g-tab { padding: 10px 13px; font-size: 8.5px; }
+      .lb-prev { left: 8px; } .lb-next { right: 8px; }
+    }
+
+    /* ───── STEPS ───── */
+    .steps-section { background: var(--dark); }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 44px; margin-top: 64px;
+    }
+    .step-n {
+      font-family: var(--serif); font-size: 80px; font-weight: 300;
+      color: rgba(201,169,110,.1); line-height: 1; margin-bottom: 14px;
+    }
+    .step-title {
+      font-size: 11px; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--white); margin-bottom: 10px;
+    }
+    .step-text { font-size: 13px; color: var(--gray); line-height: 1.75; }
+
+    /* ───── CONTACT ───── */
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; margin-top: 64px; align-items: start;
+    }
+    .c-person {
+      font-family: var(--serif); font-size: 28px; font-weight: 300;
+      margin-bottom: 6px;
+    }
+    html[lang="ar"] .c-person,
+    html[lang="zh"] .c-person { font-family: inherit; font-size: 22px; }
+    .c-role {
+      font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 32px;
+    }
+    .c-links { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+    .c-link { color: var(--gray-l); text-decoration: none; font-size: 14px; transition: color .2s; }
+    .c-link:hover { color: var(--gold); }
+    .c-org {
+      font-size: 11px; color: var(--gray); line-height: 1.8;
+      padding-top: 28px; border-top: 1px solid rgba(201,169,110,.14);
+      white-space: pre-line;
+    }
+
+    /* ───── FORM ───── */
+    .form { display: flex; flex-direction: column; gap: 14px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-field { display: flex; flex-direction: column; gap: 5px; }
+    .form-lbl { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--gray); }
+    .form-input, .form-select, .form-textarea {
+      background: var(--dark2); border: 1px solid rgba(201,169,110,.18);
+      color: var(--white); padding: 11px 14px;
+      font-size: 13.5px; font-family: inherit;
+      outline: none; transition: border-color .2s; width: 100%;
+      appearance: none; -webkit-appearance: none;
+    }
+    .form-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888880' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+    html[dir="rtl"] .form-select { background-position: left 14px center; padding-right: 14px; padding-left: 36px; }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
+    .form-select option { background: #1a1a1a; color: var(--white); }
+    .form-textarea { resize: vertical; min-height: 96px; }
+    .form-success {
+      display: none; padding: 16px 20px;
+      border: 1px solid rgba(201,169,110,.3);
+      background: rgba(201,169,110,.06);
+      font-size: 13px; color: var(--gold-l); line-height: 1.6;
+    }
+
+    /* ───── FOOTER ───── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(201,169,110,.1);
+      padding: 44px 52px;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px;
+    }
+    .footer-logo img { height: 24px; opacity: .55; }
+    .footer-copy { font-size: 10.5px; color: var(--gray); letter-spacing: .05em; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 10.5px; color: var(--gray); text-decoration: none; letter-spacing: .08em; transition: color .2s; }
+    .footer-links a:hover { color: var(--gold); }
+    html[dir="rtl"] .footer-inner { flex-direction: row-reverse; }
+
+    /* ───── ANIMATIONS ───── */
+    .fade-in { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in.d1 { transition-delay: .1s; }
+    .fade-in.d2 { transition-delay: .2s; }
+    .fade-in.d3 { transition-delay: .3s; }
+
+    /* ───── RESPONSIVE ───── */
+    @media (max-width: 1024px) {
+      section { padding: 80px 32px; }
+      nav, nav.scrolled { padding-left: 32px; padding-right: 32px; }
+      .formats-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(2) { border-right: none; }
+      .stat:nth-child(3) { border-top: 1px solid rgba(201,169,110,.14); }
+      .stat:nth-child(4) { border-top: 1px solid rgba(201,169,110,.14); }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-visual { display: none; }
+      .contact-grid { grid-template-columns: 1fr; gap: 52px; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 64px 20px; }
+      nav, nav.scrolled { padding-left: 20px; padding-right: 20px; }
+      .nav-links { display: none; }
+      footer { padding: 32px 20px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .form-row { grid-template-columns: 1fr; }
+      .about-feats { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+      html[dir="rtl"] .footer-inner { flex-direction: column; }
+    }
+
+  /* ─── QUIZ ─── */
+  .quiz-section{background:var(--dark);}
+  .quiz-wrap{max-width:700px;margin:52px auto 0;}
+  .quiz-progress{height:2px;background:rgba(201,169,110,.12);margin-bottom:10px;border-radius:2px;overflow:hidden;}
+  .quiz-fill{height:100%;background:linear-gradient(90deg,#c9a96e,#e8c887);transition:width .4s ease;}
+  .quiz-step{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--gray);margin-bottom:32px;}
+  .quiz-card{background:var(--dark-2);border:1px solid rgba(201,169,110,.15);padding:48px;transition:opacity .25s,transform .25s;}
+  .quiz-card.hide{opacity:0;transform:translateX(-20px);pointer-events:none;}
+  .quiz-q{font-family:var(--serif);font-size:clamp(20px,2.8vw,28px);font-weight:300;line-height:1.35;margin-bottom:28px;color:var(--white);}
+  .quiz-opts{display:flex;flex-direction:column;gap:10px;}
+  .quiz-opt{display:flex;align-items:center;gap:14px;padding:15px 20px;border:1px solid rgba(201,169,110,.18);background:transparent;color:var(--white);font-family:var(--sans);font-size:14px;cursor:pointer;text-align:left;transition:all .2s;width:100%;}
+  .quiz-opt:hover{border-color:var(--gold);background:rgba(201,169,110,.04);}
+  .quiz-opt-lt{width:24px;height:24px;border:1px solid var(--gold-dark);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--gold);flex-shrink:0;font-family:var(--sans);}
+  .quiz-result{background:var(--dark-2);border:1px solid rgba(201,169,110,.2);padding:48px;text-align:center;display:none;}
+  .quiz-result.show{display:block;}
+  .qr-eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .qr-name{font-family:var(--serif);font-size:clamp(26px,4vw,46px);font-weight:300;background:linear-gradient(135deg,#c9a96e,#e8c887);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:14px;}
+  .qr-desc{font-size:15px;color:var(--gray-light);line-height:1.8;max-width:480px;margin:0 auto 22px;}
+  .qr-price{font-size:13px;color:var(--gray);margin-bottom:28px;}
+  .qr-price strong{font-size:22px;font-weight:500;color:var(--white);}
+  .quiz-restart{background:none;border:none;color:var(--gray);font-size:11px;cursor:pointer;font-family:var(--sans);letter-spacing:.1em;text-decoration:underline;margin-top:14px;display:inline-block;transition:color .2s;}
+  .quiz-restart:hover{color:var(--gold);}
+  /* ─── SPOTS BADGE ─── */
+  .fcard-spots{display:flex;align-items:center;gap:7px;margin-bottom:16px;}
+  .spot-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse-dot 1.6s ease-in-out infinite;flex-shrink:0;}
+  .spot-txt{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);}
+  @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(1.5)}}
+  /* ─── DEADLINE BAR ─── */
+  .db-bar{position:fixed;bottom:0;left:0;right:0;z-index:80;background:rgba(8,8,8,.97);border-top:1px solid rgba(201,169,110,.22);backdrop-filter:blur(12px);padding:11px 48px;display:flex;align-items:center;justify-content:center;gap:24px;transform:translateY(100%);transition:transform .4s ease;}
+  .db-bar.show{transform:translateY(0);}
+  .db-lbl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);white-space:nowrap;}
+  .db-timer{display:flex;align-items:center;gap:3px;}
+  .db-unit{display:flex;flex-direction:column;align-items:center;min-width:48px;background:var(--dark);border:1px solid rgba(201,169,110,.16);padding:5px 7px;}
+  .db-unit span{font-family:var(--serif);font-size:20px;font-weight:300;background:linear-gradient(135deg,#c9a96e,#e8c887);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+  .db-unit small{font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-top:2px;}
+  .db-sep{font-family:var(--serif);font-size:16px;color:rgba(201,169,110,.35);padding-bottom:5px;}
+  .db-cta-sm{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--black);background:linear-gradient(135deg,#c9a96e,#e8c887);padding:9px 20px;text-decoration:none;white-space:nowrap;transition:opacity .2s;}
+  .db-cta-sm:hover{opacity:.85;}
+  .db-x{position:absolute;right:18px;background:none;border:none;color:var(--gray);font-size:16px;cursor:pointer;transition:color .2s;padding:4px 8px;top:50%;transform:translateY(-50%);}
+  .db-x:hover{color:var(--white);}
+  @media(max-width:768px){
+    .db-bar{padding:10px 14px;gap:10px;}
+    .db-lbl{display:none;}
+    .quiz-card,.quiz-result{padding:28px 20px;}
+    .db-x{position:static;transform:none;}
+  }
+  </style>
+</head>
+<body>
+
+<!-- ════════ NAV ════════ -->
+<nav id="nav">
+  <div class="nav-logo">
+    <a href="#home">
+      <img src="CPM_26_FEB/CPM_kontur_white.png" alt="CPM">
+    </a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about"      data-i18n="nav_about">О показах</a></li>
+    <li><a href="#formats"    data-i18n="nav_formats">Форматы</a></li>
+    <li><a href="#exhibition" data-i18n="nav_exhibition">О выставке</a></li>
+    <li><a href="#media"      data-i18n="nav_media">Медиа</a></li>
+    <li><a href="#contact"    data-i18n="nav_contact">Контакты</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="ru">RU</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="it">IT</button>
+    <button class="lang-btn" data-lang="tr">TR</button>
+    <button class="lang-btn" data-lang="zh">中</button>
+    <button class="lang-btn" data-lang="ar">AR</button>
+  </div>
+</nav>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-photo-bg"></div>
+  <img src="CPM_26_FEB/CPM_date_26Feb_gradient.png" alt="" class="hero-hex-r" aria-hidden="true">
+  <img src="CPM_26_FEB/CPM_kontur_black.png"         alt="" class="hero-hex-l" aria-hidden="true">
+  <div class="hero-content fade-in">
+    <p class="hero-eyebrow" data-i18n="hero_eyebrow">Collection Première Moscow · 2026</p>
+    <h1 class="hero-title">CPM<br><span data-i18n="hero_title">Fashion Stage</span></h1>
+    <p class="hero-subtitle" data-i18n="hero_subtitle">Покажите коллекцию на главном байер-подиуме России</p>
+    <div class="hero-divider"></div>
+    <div class="hero-meta">
+      <span class="hero-date"  data-i18n="hero_date">17–20 февраля 2026</span>
+      <span class="hero-venue" data-i18n="hero_venue">Крокус Экспо, Москва</span>
+    </div>
+    <a href="#contact" class="btn" data-i18n="hero_cta">Подать заявку</a>
+  </div>
+</section>
+
+<!-- ════════ TICKER ════════ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="ticker-track">
+    <span class="ticker-item">CPM FASHION STAGE</span><span class="ticker-dot">·</span>
+    <span class="ticker-item">SEPTEMBER 2026</span><span class="ticker-dot">·</span>
+    <span class="ticker-item">MOSCOW</span><span class="ticker-dot">·</span>
+    <span class="ticker-item">CROCUS EXPO</span><span class="ticker-dot">·</span>
+    <span class="ticker-item">950 BRANDS</span><span class="ticker-dot">·</span>
+    <span class="ticker-item">21 000 VISITORS</span><span class="ticker-dot">·</span>
+    <span class="ticker-item">23 COUNTRIES</span><span class="ticker-dot">·</span>
+    <span class="ticker-item">CPM FASHION STAGE</span><span class="ticker-dot">·</span>
+    <span class="ticker-item">SEPTEMBER 2026</span><span class="ticker-dot">·</span>
+    <span class="ticker-item">MOSCOW</span><span class="ticker-dot">·</span>
+    <span class="ticker-item">CROCUS EXPO</span><span class="ticker-dot">·</span>
+    <span class="ticker-item">950 BRANDS</span><span class="ticker-dot">·</span>
+    <span class="ticker-item">21 000 VISITORS</span><span class="ticker-dot">·</span>
+    <span class="ticker-item">23 COUNTRIES</span><span class="ticker-dot">·</span>
+  </div>
+</div>
+
+<!-- ════════ ABOUT ════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="fade-in">
+        <p class="s-label"  data-i18n="about_label">О проекте</p>
+        <div class="gold-line"></div>
+        <h2 class="s-title" data-i18n="about_title">Что такое<br>CPM Fashion Stage?</h2>
+        <p class="s-text"   data-i18n="about_text">CPM Fashion Stage — подиумные показы в рамках крупнейшей международной выставки моды в России. Ваша коллекция на сцене перед байерами, ритейлерами и представителями прессы.</p>
+        <div class="about-feats">
+          <div class="feat">
+            <div class="feat-val" data-i18n="feat_aud_val">150+</div>
+            <div class="feat-lbl" data-i18n="feat_aud_lbl">зрителей</div>
+          </div>
+          <div class="feat">
+            <div class="feat-val" data-i18n="feat_pr_val">∞</div>
+            <div class="feat-lbl" data-i18n="feat_pr_lbl">пресс-релизы</div>
+          </div>
+          <div class="feat">
+            <div class="feat-val" data-i18n="feat_ph_val">✓</div>
+            <div class="feat-lbl" data-i18n="feat_ph_lbl">фото &amp; видео</div>
+          </div>
+          <div class="feat">
+            <div class="feat-val" data-i18n="feat_tk_val">100%</div>
+            <div class="feat-lbl" data-i18n="feat_tk_lbl">организация</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual fade-in d1">
+        <img src="CPM_26_FEB/CPM_date_26Feb_gradient.png" alt="CPM" class="about-hex">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ MEDIA ════════ -->
+<section id="media" class="media-section">
+  <div class="container">
+    <p class="s-label"  data-i18n="media_label">Фото &amp; Видео</p>
+    <div class="gold-line"></div>
+    <h2 class="s-title" data-i18n="media_title">Показы · 2025</h2>
+    <p class="media-intro" data-i18n="media_intro">Каждый участник получает профессиональный фото- и видеоархив показа. Готовые материалы для социальных сетей и пресс-релизов.</p>
+    <p class="media-note" data-i18n="media_note">Профессиональная съёмка включена в стоимость</p>
+
+    <!-- Gallery tabs (built by JS) -->
+    <div class="gallery-tabs" id="g-tabs"></div>
+
+    <!-- 8 panels, one per folder -->
+    <div class="g-panel active" id="g-opening">  <div class="photo-grid" id="grid-opening"></div></div>
+    <div class="g-panel"        id="g-selected">  <div class="photo-grid" id="grid-selected"></div></div>
+    <div class="g-panel"        id="g-onebrand">  <div class="photo-grid" id="grid-onebrand"></div></div>
+    <div class="g-panel"        id="g-menswear">  <div class="photo-grid" id="grid-menswear"></div></div>
+    <div class="g-panel"        id="g-kids">      <div class="photo-grid" id="grid-kids"></div></div>
+    <div class="g-panel"        id="g-dreams">    <div class="photo-grid" id="grid-dreams"></div></div>
+    <div class="g-panel"        id="g-designerpool"><div class="photo-grid" id="grid-designerpool"></div></div>
+    <div class="g-panel"        id="g-backstage"> <div class="photo-grid" id="grid-backstage"></div></div>
+
+    <!-- Video -->
+    <div class="video-wrap">
+      <video controls preload="metadata">
+        <source src="PHOTO%20%26%20VIDEO/VIDEO.mp4" type="video/mp4">
+        <source src="PHOTO%20%26%20VIDEO/VIDEO.mov" type="video/quicktime">
+      </video>
+      <div class="video-label" data-i18n="video_title">CPM Fashion Stage · Showreel 2025</div>
+    </div>
+
+    <!-- What you get -->
+    <div class="media-deliver" style="margin-top:56px">
+      <div class="md-item fade-in">
+        <div class="md-icon">◈</div>
+        <div class="md-title" data-i18n="md1_t">Профессиональные фото</div>
+        <div class="md-text"  data-i18n="md1_d">Высокое разрешение, готовы для публикаций и пресс-релизов</div>
+      </div>
+      <div class="md-item fade-in d1">
+        <div class="md-icon">▷</div>
+        <div class="md-title" data-i18n="md2_t">Видеозапись показа</div>
+        <div class="md-text"  data-i18n="md2_d">Полная видеосъёмка вашего выхода с профессиональным монтажом</div>
+      </div>
+      <div class="md-item fade-in d2">
+        <div class="md-icon">◉</div>
+        <div class="md-title" data-i18n="md3_t">PR &amp; Пресс-релизы</div>
+        <div class="md-text"  data-i18n="md3_d">Упоминание вашего бренда в официальных пресс-материалах CPM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lb-close">&#215;</button>
+  <button class="lb-prev"  id="lb-prev">&#8249;</button>
+  <img class="lb-img" id="lb-img" src="" alt="">
+  <button class="lb-next"  id="lb-next">&#8250;</button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
+<!-- ════════ QUIZ ════════ -->
+<section id="quiz" class="quiz-section">
+  <div class="container">
+    <p class="s-label" id="quiz-section-label">Подберите формат</p>
+    <div class="gold-line"></div>
+    <h2 class="s-title" id="quiz-section-title">Какой показ<br>для вашего бренда?</h2>
+    <div class="quiz-wrap fade-in">
+      <div class="quiz-progress"><div class="quiz-fill" id="quiz-fill" style="width:25%"></div></div>
+      <p class="quiz-step" id="quiz-step">Вопрос 1 из 4</p>
+      <div class="quiz-card" id="quiz-card">
+        <p class="quiz-q" id="quiz-q"></p>
+        <div class="quiz-opts" id="quiz-opts"></div>
+      </div>
+      <div class="quiz-result" id="quiz-result">
+        <p class="qr-eyebrow" id="qr-eyebrow"></p>
+        <h3 class="qr-name" id="qr-name"></h3>
+        <p class="qr-desc" id="qr-desc"></p>
+        <p class="qr-price" id="qr-price"></p>
+        <a href="#contact" class="btn" id="qr-cta">Подать заявку</a>
+        <button class="quiz-restart" id="quiz-restart">Пройти заново</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════ FORMATS ════════ -->
+<section id="formats" class="formats-section">
+  <div class="container">
+    <p class="s-label"  data-i18n="formats_label">Форматы участия</p>
+    <div class="gold-line"></div>
+    <h2 class="s-title" data-i18n="formats_title">Выберите<br>свой формат</h2>
+
+    <div class="formats-grid">
+
+      <!-- OPENING SHOW -->
+      <div class="fcard fade-in">
+        <span class="fcard-badge" data-i18n="f1_badge">Открытие сезона</span>
+        <div class="fcard-spots"><span class="spot-dot"></span><span class="spot-txt" data-i18n="spots_opening">Осталось 3 места</span></div>
+        <h3 class="fcard-name">CPM<br>Opening Show</h3>
+        <p class="fcard-date"  data-i18n="f1_date">17 февраля · 12:00</p>
+        <p class="fcard-desc"  data-i18n="f1_desc">Первый показ сезона — сразу после официальной церемонии открытия выставки.</p>
+        <div class="fcard-divider"></div>
+        <div class="fcard-looks">
+          <span class="fcard-num">10</span>
+          <span class="fcard-looks-lbl" data-i18n="looks_lbl">образов</span>
+        </div>
+        <p class="fcard-price">
+          <strong data-i18n="f1_price">105 600 ₽</strong>
+          <em data-i18n="vat_lbl">с НДС</em>
+        </p>
+        <ul class="fcard-inc">
+          <li data-i18n="inc1">Постановочная группа</li>
+          <li data-i18n="inc2">Профессиональные модели</li>
+          <li data-i18n="inc3">Стилист</li>
+          <li data-i18n="inc4">Фотограф и видеооператор</li>
+          <li data-i18n="inc5">Упоминание в пресс-релизах</li>
+          <li data-i18n="inc6">Фото и видео для кампаний</li>
+        </ul>
+        <a href="#contact" class="btn" data-i18n="apply_btn">Подать заявку</a>
+      </div>
+
+      <!-- SELECTED SHOW -->
+      <div class="fcard featured fade-in d1">
+        <span class="fcard-badge" data-i18n="f2_badge">Ежедневный показ</span>
+        <div class="fcard-spots"><span class="spot-dot"></span><span class="spot-txt" data-i18n="spots_selected">Осталось 5 мест</span></div>
+        <h3 class="fcard-name">CPM<br>Selected Show</h3>
+        <p class="fcard-date"  data-i18n="f2_date">17–18 февраля</p>
+        <p class="fcard-desc"  data-i18n="f2_desc">Ежедневный показ с участием нескольких отобранных брендов. 1 раз в день.</p>
+        <div class="fcard-divider"></div>
+        <div class="fcard-looks">
+          <span class="fcard-num">10</span>
+          <span class="fcard-looks-lbl" data-i18n="looks_lbl">образов</span>
+        </div>
+        <p class="fcard-price">
+          <strong data-i18n="f2_price">105 600 ₽</strong>
+          <em data-i18n="vat_lbl">с НДС</em>
+        </p>
+        <ul class="fcard-inc">
+          <li data-i18n="inc1">Постановочная группа</li>
+          <li data-i18n="inc2">Профессиональные модели</li>
+          <li data-i18n="inc3">Стилист</li>
+          <li data-i18n="inc4">Фотограф и видеооператор</li>
+          <li data-i18n="inc5">Упоминание в пресс-релизах</li>
+          <li data-i18n="inc6">Фото и видео для кампаний</li>
+        </ul>
+        <a href="#contact" class="btn" data-i18n="apply_btn">Подать заявку</a>
+      </div>
+
+      <!-- ONE BRAND SHOW -->
+      <div class="fcard fade-in d2">
+        <span class="fcard-badge" data-i18n="f3_badge">Эксклюзив</span>
+        <div class="fcard-spots"><span class="spot-dot"></span><span class="spot-txt" data-i18n="spots_onebrand">Осталось 2 места</span></div>
+        <h3 class="fcard-name">CPM One<br>Brand Show</h3>
+        <p class="fcard-date"  data-i18n="f3_date">17 или 18 февраля</p>
+        <p class="fcard-desc"  data-i18n="f3_desc">Эксклюзивный показ только вашего бренда. Время согласовывается индивидуально.</p>
+        <div class="fcard-divider"></div>
+        <div class="fcard-looks">
+          <span class="fcard-num">30</span>
+          <span class="fcard-looks-lbl" data-i18n="looks_lbl">образов</span>
+        </div>
+        <p class="fcard-price">
+          <strong data-i18n="f3_price">216 000 ₽</strong>
+          <em data-i18n="vat_lbl">с НДС</em>
+        </p>
+        <ul class="fcard-inc">
+          <li data-i18n="inc1">Постановочная группа</li>
+          <li data-i18n="inc2">Профессиональные модели</li>
+          <li data-i18n="inc3">Стилист</li>
+          <li data-i18n="inc4">Фотограф и видеооператор</li>
+          <li data-i18n="inc5">Упоминание в пресс-релизах</li>
+          <li data-i18n="inc6">Фото и видео для кампаний</li>
+        </ul>
+        <a href="#contact" class="btn" data-i18n="apply_btn">Подать заявку</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ STATS ════════ -->
+<section id="exhibition">
+  <div class="container">
+    <p class="s-label"  data-i18n="stats_label">CPM · Collection Première Moscow</p>
+    <div class="gold-line"></div>
+    <h2 class="s-title" data-i18n="stats_title">Крупнейшая выставка<br>моды России</h2>
+    <div class="stats-grid">
+      <div class="stat fade-in">
+        <div class="stat-n">950</div>
+        <div class="stat-lbl" data-i18n="stat_brands">брендов</div>
+      </div>
+      <div class="stat fade-in d1">
+        <div class="stat-n">21 000+</div>
+        <div class="stat-lbl" data-i18n="stat_visitors">посетителей</div>
+      </div>
+      <div class="stat fade-in d2">
+        <div class="stat-n">23</div>
+        <div class="stat-lbl" data-i18n="stat_countries">стран</div>
+      </div>
+      <div class="stat fade-in d3">
+        <div class="stat-n">2</div>
+        <div class="stat-lbl" data-i18n="stat_shows">дня показов</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ STEPS ════════ -->
+<section class="steps-section">
+  <div class="container">
+    <p class="s-label"  data-i18n="steps_label">Как это работает</p>
+    <div class="gold-line"></div>
+    <h2 class="s-title" data-i18n="steps_title">Четыре шага<br>к вашему показу</h2>
+    <div class="steps-grid">
+      <div class="fade-in">
+        <div class="step-n">01</div>
+        <div class="step-title" data-i18n="step1_t">Выберите формат</div>
+        <div class="step-text"  data-i18n="step1_d">Opening Show, Selected Show или One Brand Show — выберите формат, который подходит вашему бренду.</div>
+      </div>
+      <div class="fade-in d1">
+        <div class="step-n">02</div>
+        <div class="step-title" data-i18n="step2_t">Подайте заявку</div>
+        <div class="step-text"  data-i18n="step2_d">Заполните форму или свяжитесь с нашим менеджером. Мы подтвердим участие и согласуем детали.</div>
+      </div>
+      <div class="fade-in d2">
+        <div class="step-n">03</div>
+        <div class="step-title" data-i18n="step3_t">Подготовьте образы</div>
+        <div class="step-text"  data-i18n="step3_d">Создайте стилизацию самостоятельно или с нашим стилистом. Пригласите своих байеров.</div>
+      </div>
+      <div class="fade-in d3">
+        <div class="step-n">04</div>
+        <div class="step-title" data-i18n="step4_t">Выйдите на подиум</div>
+        <div class="step-text"  data-i18n="step4_d">Мы организуем всё остальное. Вы получите профессиональные материалы для рекламных кампаний.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CONTACT ════════ -->
+<section id="contact">
+  <div class="container">
+    <p class="s-label"  data-i18n="contact_label">Контакты</p>
+    <div class="gold-line"></div>
+    <h2 class="s-title" data-i18n="contact_title">Подайте заявку<br>на участие</h2>
+    <div class="contact-grid">
+
+      <div class="fade-in">
+        <p class="c-person" data-i18n="contact_person">Карина Горнак</p>
+        <p class="c-role"   data-i18n="contact_role">Менеджер по показам</p>
+        <div class="c-links">
+          <a href="mailto:GornakK@expo-fusion.ru" class="c-link">GornakK@expo-fusion.ru</a>
+          <a href="tel:+74959559199" class="c-link">+7 495 955-91-99 <span data-i18n="ext_lbl">доб.</span> 616</a>
+        </div>
+        <p class="c-org" data-i18n="contact_org">Организатор: ООО «ЭКСПО ФЬЮЖН»
+Место: МВЦ «Крокус Экспо», пав. 3, зал 15
+Московская область, г. Красногорск,
+ул. Международная, д. 20</p>
+      </div>
+
+      <div class="fade-in d1">
+        <form class="form" id="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-lbl" data-i18n="form_name">Ваше имя</label>
+              <input class="form-input" type="text" name="name" required>
+            </div>
+            <div class="form-field">
+              <label class="form-lbl" data-i18n="form_brand">Название бренда</label>
+              <input class="form-input" type="text" name="brand" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-lbl" data-i18n="form_email">Email</label>
+              <input class="form-input" type="email" name="email" required>
+            </div>
+            <div class="form-field">
+              <label class="form-lbl" data-i18n="form_phone">Телефон</label>
+              <input class="form-input" type="tel" name="phone">
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-lbl" data-i18n="form_format">Формат показа</label>
+            <select class="form-select" name="format" id="format-select">
+              <option value="" data-i18n="form_format_ph">Выберите формат...</option>
+              <option value="opening" data-i18n="opt_opening">CPM Opening Show</option>
+              <option value="selected" data-i18n="opt_selected">CPM Selected Show</option>
+              <option value="onebrand" data-i18n="opt_onebrand">CPM One Brand Show</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-lbl" data-i18n="form_msg">Комментарий (необязательно)</label>
+            <textarea class="form-textarea" name="message"></textarea>
+          </div>
+          <button type="submit" class="btn" data-i18n="form_submit">Отправить заявку</button>
+        </form>
+        <div class="form-success" id="form-success">
+          <span data-i18n="form_ok">Заявка отправлена! Мы свяжемся с вами в ближайшее время.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="CPM_26_FEB/CPM_kontur_white.png" alt="CPM">
+    </div>
+    <p class="footer-copy" data-i18n="footer_copy">© 2026 CPM Fashion Stage · Expo Fusion</p>
+    <div class="footer-links">
+      <a href="https://cpm-moscow.com" target="_blank" rel="noopener">cpm-moscow.com</a>
+      <a href="mailto:GornakK@expo-fusion.ru" data-i18n="nav_contact">Контакты</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════ DEADLINE BAR ════════ -->
+<div class="db-bar" id="db-bar">
+  <span class="db-lbl" data-i18n="db_label">Приём заявок заканчивается через</span>
+  <div class="db-timer">
+    <div class="db-unit"><span id="db-d">--</span><small data-i18n="db_days">дней</small></div>
+    <span class="db-sep">:</span>
+    <div class="db-unit"><span id="db-h">--</span><small data-i18n="db_hours">часов</small></div>
+    <span class="db-sep">:</span>
+    <div class="db-unit"><span id="db-m">--</span><small data-i18n="db_mins">минут</small></div>
+    <span class="db-sep">:</span>
+    <div class="db-unit"><span id="db-s">--</span><small data-i18n="db_secs">секунд</small></div>
+  </div>
+  <a href="#contact" class="db-cta-sm" data-i18n="hero_cta">Подать заявку</a>
+  <button class="db-x" id="db-x">&#215;</button>
+</div>
+
+
+<!-- ════════ SCRIPT ════════ -->
+<script>
+const T = {
+  ru: {
+    nav_about:'О показах', nav_formats:'Форматы', nav_exhibition:'О выставке', nav_media:'Медиа', nav_contact:'Контакты',
+    hero_eyebrow:'Collection Première Moscow · 2026',
+    hero_title:'Fashion Stage',
+    hero_subtitle:'Покажите коллекцию на главном байер-подиуме России',
+    hero_date:'1–4 сентября 2026', hero_venue:'Крокус Экспо, Москва', hero_cta:'Подать заявку',
+    about_label:'О проекте',
+    about_title:'Что такое\nCPM Fashion Stage?',
+    about_text:'CPM Fashion Stage — подиумные показы в рамках крупнейшей международной выставки моды в России. Ваша коллекция на сцене перед байерами, ритейлерами и представителями прессы.',
+    feat_aud_val:'150+', feat_aud_lbl:'зрителей', feat_pr_val:'∞', feat_pr_lbl:'пресс-релизы',
+    feat_ph_val:'✓', feat_ph_lbl:'фото & видео', feat_tk_val:'100%', feat_tk_lbl:'организация',
+    formats_label:'Форматы участия', formats_title:'Выберите\nсвой формат',
+    f1_badge:'Открытие сезона', f1_date:'1 сентября · 12:00',
+    f1_desc:'Первый показ сезона — сразу после официальной церемонии открытия выставки.',
+    f1_price:'105 600 ₽',
+    f2_badge:'Ежедневный показ', f2_date:'1–2 сентября',
+    f2_desc:'Ежедневный показ с участием нескольких отобранных брендов. 1 раз в день.',
+    f2_price:'105 600 ₽',
+    f3_badge:'Эксклюзив', f3_date:'1 или 2 сентября',
+    f3_desc:'Эксклюзивный показ только вашего бренда. Время согласовывается индивидуально.',
+    f3_price:'216 000 ₽',
+    looks_lbl:'образов', vat_lbl:'с НДС', apply_btn:'Подать заявку',
+    inc1:'Постановочная группа', inc2:'Профессиональные модели', inc3:'Стилисты MUAH',
+    inc4:'Фотограф и видеооператор', inc5:'Упоминание в пресс-релизах', inc6:'Фото и видео для кампаний',
+    stats_label:'CPM · Collection Première Moscow',
+    stats_title:'Крупнейшая выставка\nмоды России',
+    stat_brands:'брендов', stat_visitors:'посетителей', stat_countries:'страны', stat_shows:'дня показов',
+    steps_label:'Как это работает', steps_title:'Четыре шага\nк вашему показу',
+    step1_t:'Выберите формат', step1_d:'Opening Show, Selected Show или One Brand Show — выберите формат, который подходит вашему бренду.',
+    step2_t:'Подайте заявку', step2_d:'Заполните форму или свяжитесь с нашим менеджером. Мы подтвердим участие и согласуем детали.',
+    step3_t:'Подготовьте образы', step3_d:'Создайте стилизацию самостоятельно или с нашим стилистом. Пригласите своих байеров.',
+    step4_t:'Выйдите на подиум', step4_d:'Мы организуем всё остальное. Вы получите профессиональные материалы для рекламных кампаний.',
+    contact_label:'Контакты', contact_title:'Подайте заявку\nна участие',
+    contact_person:'Карина Горнак', contact_role:'Менеджер по показам', ext_lbl:'доб.',
+    contact_org:'Организатор: ООО «ЭКСПО ФЬЮЖН»\nМесто: МВЦ «Крокус Экспо», пав. 3, зал 15\nМосковская область, г. Красногорск,\nул. Международная, д. 20',
+    form_name:'Ваше имя', form_brand:'Название бренда', form_email:'Email', form_phone:'Телефон',
+    form_format:'Формат показа', form_format_ph:'Выберите формат...',
+    opt_opening:'CPM Opening Show', opt_selected:'CPM Selected Show', opt_onebrand:'CPM One Brand Show',
+    form_msg:'Комментарий (необязательно)', form_submit:'Отправить заявку',
+    form_ok:'Заявка отправлена! Мы свяжемся с вами в ближайшее время.',
+    media_label:'Фото & Видео', media_title:'Материалы для\nвашего бренда',
+    media_intro:'Каждый участник получает профессиональный фото- и видеоархив показа. Готовые материалы для социальных сетей и пресс-релизов.',
+    media_note:'Профессиональная съёмка включена в стоимость',
+    gcard1:'Бэкстейдж', gcard2:'Подиум · Opening Show', gcard3:'Selected Show · 2025', gcard4:'One Brand Show', gcard5:'CPM Fashion Stage · Crокус Экспо', gcard6:'Пресс-фотографии · Hi-Res',
+    video_title:'CPM Fashion Stage · Showreel 2025',
+    md1_t:'Профессиональные фото', md1_d:'Высокое разрешение, готовы для публикаций и пресс-релизов',
+    md2_t:'Видеозапись показа', md2_d:'Полная видеосъёмка вашего выхода с профессиональным монтажом',
+    md3_t:'PR & Пресс-релизы', md3_d:'Упоминание вашего бренда в официальных пресс-материалах CPM',
+    footer_copy:'© 2026 CPM Fashion Stage · Expo Fusion',
+    spots_opening:'Осталось 3 места', spots_selected:'Осталось 5 мест', spots_onebrand:'Осталось 2 места',
+    db_label:'Приём заявок заканчивается через', db_days:'дней', db_hours:'часов', db_mins:'минут', db_secs:'секунд'
+  },
+  en: {
+    nav_about:'About', nav_formats:'Formats', nav_exhibition:'Exhibition', nav_media:'Media', nav_contact:'Contact',
+    hero_eyebrow:'Collection Première Moscow · 2026',
+    hero_title:'Fashion Stage',
+    hero_subtitle:"Present Your Collection on Russia's Premier Runway",
+    hero_date:'September 1–4, 2026', hero_venue:'Crocus Expo, Moscow', hero_cta:'Apply Now',
+    about_label:'About',
+    about_title:'What is\nCPM Fashion Stage?',
+    about_text:"CPM Fashion Stage is a runway show program within Russia's largest international fashion trade show. Your collection on stage before buyers, retailers and press.",
+    feat_aud_val:'150+', feat_aud_lbl:'spectators', feat_pr_val:'∞', feat_pr_lbl:'press releases',
+    feat_ph_val:'✓', feat_ph_lbl:'photo & video', feat_tk_val:'100%', feat_tk_lbl:'turnkey',
+    formats_label:'Show Formats', formats_title:'Choose\nYour Format',
+    f1_badge:'Season Opener', f1_date:'September 1 · 12:00',
+    f1_desc:'The first show of the season — immediately after the official exhibition opening ceremony.',
+    f1_price:'105,600 ₽',
+    f2_badge:'Daily Show', f2_date:'September 1–2',
+    f2_desc:'Daily multi-brand show featuring selected participating brands. Once per day.',
+    f2_price:'105,600 ₽',
+    f3_badge:'Exclusive', f3_date:'Sep 1 or 2',
+    f3_desc:'An exclusive show dedicated entirely to your brand. Timing agreed individually.',
+    f3_price:'216,000 ₽',
+    looks_lbl:'looks', vat_lbl:'VAT incl.', apply_btn:'Apply Now',
+    inc1:'Production team', inc2:'Professional models', inc3:'Stylist',
+    inc4:'Photographer & videographer', inc5:'Press release mentions', inc6:'Photo & video for campaigns',
+    stats_label:'CPM · Collection Première Moscow',
+    stats_title:"Russia's Largest\nFashion Trade Show",
+    stat_brands:'brands', stat_visitors:'visitors', stat_countries:'countries', stat_shows:'show days',
+    steps_label:'How It Works', steps_title:'Four Steps\nto Your Show',
+    step1_t:'Choose Format', step1_d:'Opening Show, Selected Show or One Brand Show — choose the format that fits your brand.',
+    step2_t:'Apply', step2_d:'Fill out the form or contact our manager. We will confirm your participation and agree on details.',
+    step3_t:'Prepare Looks', step3_d:'Create your styling independently or with our stylist. Invite your buyers.',
+    step4_t:'Take the Stage', step4_d:'We handle everything else. You receive professional materials for your advertising campaigns.',
+    contact_label:'Contact', contact_title:'Apply\nto Participate',
+    contact_person:'Karina Gornak', contact_role:'Shows Manager', ext_lbl:'ext.',
+    contact_org:'Organizer: Expo Fusion LLC\nVenue: Crocus Expo IEC, Pavilion 3, Hall 15\nKrasnogorsk, Moscow Region,\n20 Mezhdunarodnaya St.',
+    form_name:'Your Name', form_brand:'Brand Name', form_email:'Email', form_phone:'Phone',
+    form_format:'Show Format', form_format_ph:'Select format...',
+    opt_opening:'CPM Opening Show', opt_selected:'CPM Selected Show', opt_onebrand:'CPM One Brand Show',
+    form_msg:'Comment (optional)', form_submit:'Submit Application',
+    form_ok:'Application submitted! We will contact you shortly.',
+    media_label:'Photo & Video', media_title:'Materials for\nYour Brand',
+    media_intro:'Every participant receives a professional photo and video archive of the show. Ready-made materials for social media and press releases.',
+    media_note:'Professional production included in the price',
+    gcard1:'Backstage', gcard2:'Runway · Opening Show', gcard3:'Selected Show · 2025', gcard4:'One Brand Show', gcard5:'CPM Fashion Stage · Crocus Expo', gcard6:'Press Photos · Hi-Res',
+    video_title:'CPM Fashion Stage · Showreel 2025',
+    md1_t:'Professional Photos', md1_d:'High resolution, ready for publications and press releases',
+    md2_t:'Show Video Recording', md2_d:'Full video footage of your show with professional editing',
+    md3_t:'PR & Press Releases', md3_d:"Your brand mentioned in CPM's official press materials",
+    footer_copy:'© 2026 CPM Fashion Stage · Expo Fusion',
+    spots_opening:'3 spots left', spots_selected:'5 spots left', spots_onebrand:'2 spots left',
+    db_label:'Applications close in', db_days:'days', db_hours:'hrs', db_mins:'min', db_secs:'sec'
+  },
+  it: {
+    nav_about:'Chi Siamo', nav_formats:'Formati', nav_exhibition:'La Fiera', nav_media:'Media', nav_contact:'Contatti',
+    hero_eyebrow:'Collection Première Moscow · 2026',
+    hero_title:'Fashion Stage',
+    hero_subtitle:'Presenta la tua collezione sulla passerella principale della Russia',
+    hero_date:'1–4 settembre 2026', hero_venue:'Crocus Expo, Mosca', hero_cta:'Candidati',
+    about_label:'Il Progetto',
+    about_title:"Cos'è\nCPM Fashion Stage?",
+    about_text:'CPM Fashion Stage è il programma di sfilate della più grande fiera internazionale della moda in Russia. La tua collezione in passerella davanti a buyer, retailer e stampa.',
+    feat_aud_val:'150+', feat_aud_lbl:'spettatori', feat_pr_val:'∞', feat_pr_lbl:'comunicati stampa',
+    feat_ph_val:'✓', feat_ph_lbl:'foto & video', feat_tk_val:'100%', feat_tk_lbl:'chiavi in mano',
+    formats_label:'Formati di Partecipazione', formats_title:'Scegli\nil Tuo Formato',
+    f1_badge:'Apertura Stagione', f1_date:'1 settembre · 12:00',
+    f1_desc:'Il primo show della stagione — subito dopo la cerimonia di apertura ufficiale della fiera.',
+    f1_price:'105.600 ₽',
+    f2_badge:'Show Quotidiano', f2_date:'1–2 settembre',
+    f2_desc:'Show quotidiano multi-brand con brand partecipanti selezionati. Una volta al giorno.',
+    f2_price:'105.600 ₽',
+    f3_badge:'Esclusivo', f3_date:'1 o 2 settembre',
+    f3_desc:"Show esclusivo dedicato interamente al tuo brand. Orario concordato individualmente.",
+    f3_price:'216.000 ₽',
+    looks_lbl:'look', vat_lbl:'IVA incl.', apply_btn:'Candidati',
+    inc1:'Team di produzione', inc2:'Modelle professioniste', inc3:'Stilista',
+    inc4:'Fotografo e videomaker', inc5:'Comunicati stampa', inc6:'Foto e video per campagne',
+    stats_label:'CPM · Collection Première Moscow',
+    stats_title:'La Più Grande Fiera\ndella Moda in Russia',
+    stat_brands:'brand', stat_visitors:'visitatori', stat_countries:'paesi', stat_shows:'giorni sfilate',
+    steps_label:'Come Funziona', steps_title:'Quattro Passi\nper il Tuo Show',
+    step1_t:'Scegli il Formato', step1_d:'Opening Show, Selected Show o One Brand Show — scegli il formato adatto al tuo brand.',
+    step2_t:'Candidati', step2_d:'Compila il modulo o contatta il nostro manager. Confermeremo la partecipazione.',
+    step3_t:'Prepara i Look', step3_d:'Crea il tuo styling in autonomia o con il nostro stilista. Invita i tuoi buyer.',
+    step4_t:'Sali in Passerella', step4_d:'Ci occupiamo del resto. Riceverai materiali professionali per le campagne pubblicitarie.',
+    contact_label:'Contatti', contact_title:'Candidati\nper Partecipare',
+    contact_person:'Karina Gornak', contact_role:'Responsabile Sfilate', ext_lbl:'int.',
+    contact_org:'Organizzatore: Expo Fusion LLC\nSede: Crocus Expo, Pad. 3, Sala 15\nKrasnogorsk, Regione di Mosca,\nVia Mezhdunarodnaya 20',
+    form_name:'Il Tuo Nome', form_brand:'Nome del Brand', form_email:'Email', form_phone:'Telefono',
+    form_format:'Formato Show', form_format_ph:'Seleziona formato...',
+    opt_opening:'CPM Opening Show', opt_selected:'CPM Selected Show', opt_onebrand:'CPM One Brand Show',
+    form_msg:'Commento (opzionale)', form_submit:'Invia Candidatura',
+    form_ok:'Candidatura inviata! Ti contatteremo a breve.',
+    media_label:'Foto & Video', media_title:'Materiali per\nil Tuo Brand',
+    media_intro:'Ogni partecipante riceve un archivio fotografico e video professionale dello show. Materiali pronti per social media e comunicati stampa.',
+    media_note:'Produzione professionale inclusa nel prezzo',
+    gcard1:'Backstage', gcard2:'Passerella · Opening Show', gcard3:'Selected Show · 2025', gcard4:'One Brand Show', gcard5:'CPM Fashion Stage · Crocus Expo', gcard6:'Foto Stampa · Hi-Res',
+    video_title:'CPM Fashion Stage · Showreel 2025',
+    md1_t:'Foto Professionali', md1_d:'Alta risoluzione, pronte per pubblicazioni e comunicati stampa',
+    md2_t:'Video dello Show', md2_d:'Riprese complete del tuo show con montaggio professionale',
+    md3_t:'PR & Comunicati Stampa', md3_d:'Il tuo brand citato nei materiali stampa ufficiali di CPM',
+    footer_copy:'© 2026 CPM Fashion Stage · Expo Fusion',
+    spots_opening:'Rimangono 3 posti', spots_selected:'Rimangono 5 posti', spots_onebrand:'Rimangono 2 posti',
+    db_label:'Le iscrizioni chiudono tra', db_days:'giorni', db_hours:'ore', db_mins:'min', db_secs:'sec'
+  },
+  tr: {
+    nav_about:'Hakkında', nav_formats:'Formatlar', nav_exhibition:'Fuar', nav_media:'Medya', nav_contact:'İletişim',
+    hero_eyebrow:'Collection Première Moscow · 2026',
+    hero_title:'Fashion Stage',
+    hero_subtitle:"Koleksiyonunuzu Rusya'nın En Prestijli Podyumunda Sergileyin",
+    hero_date:'1–4 Eylül 2026', hero_venue:'Crocus Expo, Moskova', hero_cta:'Başvur',
+    about_label:'Proje Hakkında',
+    about_title:'CPM Fashion Stage\nNedir?',
+    about_text:"CPM Fashion Stage, Rusya'nın en büyük uluslararası moda fuarı bünyesindeki podyum gösterisi programıdır. Koleksiyonunuz alıcılar, perakendeciler ve basın önünde sahnede.",
+    feat_aud_val:'150+', feat_aud_lbl:'seyirci', feat_pr_val:'∞', feat_pr_lbl:'basın bülteni',
+    feat_ph_val:'✓', feat_ph_lbl:'fotoğraf & video', feat_tk_val:'100%', feat_tk_lbl:'anahtar teslim',
+    formats_label:'Katılım Formatları', formats_title:'Formatınızı\nSeçin',
+    f1_badge:'Sezon Açılışı', f1_date:'1 Eylül · 12:00',
+    f1_desc:"Sezonun ilk gösterisi — fuarın resmi açılış töreninden hemen sonra.",
+    f1_price:'105.600 ₽',
+    f2_badge:'Günlük Gösteri', f2_date:'1–2 Eylül',
+    f2_desc:'Seçilmiş markaların katıldığı günlük çok markalı gösteri. Günde bir kez.',
+    f2_price:'105.600 ₽',
+    f3_badge:'Özel', f3_date:'1 veya 2 Eylül',
+    f3_desc:'Tamamen markanıza adanmış özel gösteri. Zamanlama bireysel olarak belirlenir.',
+    f3_price:'216.000 ₽',
+    looks_lbl:'look', vat_lbl:'KDV dahil', apply_btn:'Başvur',
+    inc1:'Prodüksiyon ekibi', inc2:'Profesyonel modeller', inc3:'Stilist',
+    inc4:'Fotoğrafçı ve video operatörü', inc5:'Basın bültenlerinde yer alma', inc6:'Reklam için fotoğraf ve video',
+    stats_label:'CPM · Collection Première Moscow',
+    stats_title:"Rusya'nın En Büyük\nModa Fuarı",
+    stat_brands:'marka', stat_visitors:'ziyaretçi', stat_countries:'ülke', stat_shows:'gösteri günü',
+    steps_label:'Nasıl Çalışır', steps_title:'Gösterinize\nDört Adım',
+    step1_t:'Format Seçin', step1_d:"Opening Show, Selected Show veya One Brand Show — markanıza uygun formatı seçin.",
+    step2_t:'Başvurun', step2_d:'Formu doldurun veya yöneticimizle iletişime geçin. Katılımınızı onaylayacağız.',
+    step3_t:'Lookları Hazırlayın', step3_d:'Stilizasyonunuzu kendiniz veya stilistimizle oluşturun. Alıcılarınızı davet edin.',
+    step4_t:'Sahneye Çıkın', step4_d:'Geri kalanını biz hallederiz. Reklam kampanyaları için profesyonel materyal alırsınız.',
+    contact_label:'İletişim', contact_title:'Katılım\nBaşvurusu Yapın',
+    contact_person:'Karina Gornak', contact_role:'Gösteri Yöneticisi', ext_lbl:'dah.',
+    contact_org:'Organizatör: Expo Fusion LLC\nMekan: Crocus Expo, Pavyon 3, Salon 15\nKrasnogorsk, Moskova Bölgesi,\nUluslararası Cad. No: 20',
+    form_name:'Adınız', form_brand:'Marka Adı', form_email:'E-posta', form_phone:'Telefon',
+    form_format:'Gösteri Formatı', form_format_ph:'Format seçin...',
+    opt_opening:'CPM Opening Show', opt_selected:'CPM Selected Show', opt_onebrand:'CPM One Brand Show',
+    form_msg:'Yorum (isteğe bağlı)', form_submit:'Başvuru Gönder',
+    form_ok:'Başvurunuz alındı! En kısa sürede sizinle iletişime geçeceğiz.',
+    media_label:'Fotoğraf & Video', media_title:'Markanız için\nMateryaller',
+    media_intro:'Her katılımcı, gösterinin profesyonel fotoğraf ve video arşivini alır. Sosyal medya ve basın bültenleri için hazır materyaller.',
+    media_note:'Profesyonel prodüksiyon fiyata dahil',
+    gcard1:'Sahne Arkası', gcard2:'Podyum · Opening Show', gcard3:'Selected Show · 2025', gcard4:'One Brand Show', gcard5:'CPM Fashion Stage · Crocus Expo', gcard6:'Basın Fotoğrafları · Hi-Res',
+    video_title:'CPM Fashion Stage · Showreel 2025',
+    md1_t:'Profesyonel Fotoğraflar', md1_d:'Yüksek çözünürlüklü, yayın ve basın bültenleri için hazır',
+    md2_t:'Gösteri Video Kaydı', md2_d:'Profesyonel kurgu ile gösterinizin tam video görüntüleri',
+    md3_t:'PR & Basın Bültenleri', md3_d:"Markanız CPM'nin resmi basın materyallerinde yer alır",
+    footer_copy:'© 2026 CPM Fashion Stage · Expo Fusion',
+    spots_opening:'3 yer kaldı', spots_selected:'5 yer kaldı', spots_onebrand:'2 yer kaldı',
+    db_label:'Başvurular bitiyor', db_days:'gün', db_hours:'saat', db_mins:'dak', db_secs:'sn'
+  },
+  zh: {
+    nav_about:'关于', nav_formats:'展示格式', nav_exhibition:'关于展览', nav_media:'媒体', nav_contact:'联系我们',
+    hero_eyebrow:'Collection Première Moscow · 2026',
+    hero_title:'时装舞台',
+    hero_subtitle:'在俄罗斯顶级T台展示您的系列',
+    hero_date:'2026年9月1-4日', hero_venue:'莫斯科克罗库斯展览中心', hero_cta:'立即申请',
+    about_label:'项目介绍',
+    about_title:'什么是\nCPM时装舞台？',
+    about_text:'CPM时装舞台是俄罗斯最大国际时装贸易展览会的走秀节目。您的系列将在买家、零售商和媒体代表面前登台展示。',
+    feat_aud_val:'150+', feat_aud_lbl:'观众', feat_pr_val:'∞', feat_pr_lbl:'新闻稿',
+    feat_ph_val:'✓', feat_ph_lbl:'摄影录像', feat_tk_val:'100%', feat_tk_lbl:'一站式服务',
+    formats_label:'参与格式', formats_title:'选择\n您的格式',
+    f1_badge:'开幕首秀', f1_date:'9月1日 · 12:00',
+    f1_desc:'本季第一场秀——在展览官方开幕式之后立即举行。',
+    f1_price:'105,600 ₽',
+    f2_badge:'每日展示', f2_date:'9月1-2日',
+    f2_desc:'精选品牌参与的每日多品牌秀，每天一场。',
+    f2_price:'105,600 ₽',
+    f3_badge:'专属', f3_date:'9月1日或2日',
+    f3_desc:'专属于您品牌的独家展示，时间单独协商。',
+    f3_price:'216,000 ₽',
+    looks_lbl:'套造型', vat_lbl:'含增值税', apply_btn:'立即申请',
+    inc1:'制作团队', inc2:'专业模特', inc3:'造型师',
+    inc4:'摄影师和摄像师', inc5:'展览新闻稿提及', inc6:'广告活动用照片和视频',
+    stats_label:'CPM · Collection Première Moscow',
+    stats_title:'俄罗斯最大\n时装贸易展览会',
+    stat_brands:'个品牌', stat_visitors:'名访客', stat_countries:'个国家', stat_shows:'天走秀',
+    steps_label:'如何参与', steps_title:'走向舞台\n的四个步骤',
+    step1_t:'选择格式', step1_d:'开幕秀、精选秀或单品牌秀——选择适合您品牌的格式。',
+    step2_t:'提交申请', step2_d:'填写表格或联系我们的经理，我们将确认您的参与并商定细节。',
+    step3_t:'准备造型', step3_d:'自行创作造型或与我们的造型师合作，邀请您的买家参观。',
+    step4_t:'登上舞台', step4_d:'其余的由我们负责，您将获得专业材料用于广告推广活动。',
+    contact_label:'联系我们', contact_title:'申请\n参与展示',
+    contact_person:'Karina Gornak', contact_role:'展示经理', ext_lbl:'分机',
+    contact_org:'主办方：Expo Fusion LLC\n场地：克罗库斯展览中心，3号馆15号厅\n莫斯科州，克拉斯诺戈尔斯克，\n国际街20号',
+    form_name:'您的姓名', form_brand:'品牌名称', form_email:'电子邮件', form_phone:'电话',
+    form_format:'展示格式', form_format_ph:'请选择格式...',
+    opt_opening:'CPM 开幕秀', opt_selected:'CPM 精选秀', opt_onebrand:'CPM 单品牌秀',
+    form_msg:'备注（可选）', form_submit:'提交申请',
+    form_ok:'申请已提交！我们将尽快与您联系。',
+    media_label:'照片与视频', media_title:'您品牌的\n专属素材',
+    media_intro:'每位参与者均可获得展示的专业照片和视频存档，可直接用于社交媒体和新闻稿。',
+    media_note:'专业摄影摄像已包含在价格中',
+    gcard1:'后台花絮', gcard2:'走秀 · 开幕秀', gcard3:'精选秀 · 2025', gcard4:'单品牌秀', gcard5:'CPM时装舞台 · 克罗库斯展览中心', gcard6:'新闻照片 · 高清',
+    video_title:'CPM时装舞台 · 精华集锦 2025',
+    md1_t:'专业照片', md1_d:'高分辨率，可直接用于出版物和新闻稿',
+    md2_t:'走秀视频录像', md2_d:'您演出的完整视频，附专业剪辑',
+    md3_t:'公关与新闻稿', md3_d:'您的品牌将出现在CPM官方新闻材料中',
+    footer_copy:'© 2026 CPM时装舞台 · Expo Fusion',
+    spots_opening:'剩余3个名额', spots_selected:'剩余5个名额', spots_onebrand:'剩余2个名额',
+    db_label:'报名截止倒计时', db_days:'天', db_hours:'小时', db_mins:'分', db_secs:'秒'
+  },
+  ar: {
+    nav_about:'عن العروض', nav_formats:'التنسيقات', nav_exhibition:'عن المعرض', nav_media:'وسائط', nav_contact:'اتصل بنا',
+    hero_eyebrow:'كوليكشن بريمير موسكو · ٢٠٢٦',
+    hero_title:'فاشن ستيج',
+    hero_subtitle:'اعرض مجموعتك على المنصة الرئيسية في روسيا',
+    hero_date:'١–٤ سبتمبر ٢٠٢٦', hero_venue:'كروكوس إكسبو، موسكو', hero_cta:'قدّم طلبك',
+    about_label:'عن المشروع',
+    about_title:'ما هو\nCPM Fashion Stage؟',
+    about_text:'CPM Fashion Stage هو برنامج عروض الأزياء ضمن أكبر معرض تجاري دولي للموضة في روسيا. مجموعتك على المنصة أمام المشترين وتجار التجزئة والصحافة.',
+    feat_aud_val:'+١٥٠', feat_aud_lbl:'مشاهد', feat_pr_val:'∞', feat_pr_lbl:'بيانات صحفية',
+    feat_ph_val:'✓', feat_ph_lbl:'صور وفيديو', feat_tk_val:'١٠٠٪', feat_tk_lbl:'خدمة متكاملة',
+    formats_label:'تنسيقات المشاركة', formats_title:'اختر\nتنسيقك',
+    f1_badge:'افتتاح الموسم', f1_date:'١ سبتمبر · ١٢:٠٠',
+    f1_desc:'أول عرض في الموسم — مباشرة بعد حفل الافتتاح الرسمي للمعرض.',
+    f1_price:'١٠٥٬٦٠٠ ₽',
+    f2_badge:'عرض يومي', f2_date:'١–٢ سبتمبر',
+    f2_desc:'عرض يومي متعدد العلامات التجارية يضم مجموعة مختارة من المشاركين. مرة واحدة يومياً.',
+    f2_price:'١٠٥٬٦٠٠ ₽',
+    f3_badge:'حصري', f3_date:'١ أو ٢ سبتمبر',
+    f3_desc:'عرض حصري مخصص لعلامتك التجارية فقط. يتم الاتفاق على التوقيت بشكل فردي.',
+    f3_price:'٢١٦٬٠٠٠ ₽',
+    looks_lbl:'إطلالة', vat_lbl:'شامل ضريبة القيمة المضافة', apply_btn:'قدّم طلبك',
+    inc1:'فريق الإنتاج', inc2:'عارضات محترفات', inc3:'مصمم أزياء',
+    inc4:'مصور وكاميرامان', inc5:'ذكر في البيانات الصحفية', inc6:'صور وفيديو لحملات إعلانية',
+    stats_label:'CPM · كوليكشن بريمير موسكو',
+    stats_title:'أكبر معرض\nأزياء في روسيا',
+    stat_brands:'علامة تجارية', stat_visitors:'زائر', stat_countries:'دولة', stat_shows:'أيام عروض',
+    steps_label:'كيف يعمل', steps_title:'أربع خطوات\nإلى عرضك',
+    step1_t:'اختر التنسيق', step1_d:'عرض الافتتاح أو العرض المختار أو عرض علامة واحدة — اختر التنسيق المناسب.',
+    step2_t:'قدّم طلبك', step2_d:'اmlأ النموذج أو تواصل مع مديرنا. سنؤكد مشاركتك ونتفق على التفاصيل.',
+    step3_t:'حضّر الإطلالات', step3_d:'أنشئ الأسلوب بنفسك أو مع مصممنا. ادعُ مشتريك للحضور.',
+    step4_t:'اصعد المنصة', step4_d:'نحن نتولى الباقي. ستحصل على مواد احترافية لحملاتك الإعلانية.',
+    contact_label:'اتصل بنا', contact_title:'قدّم طلب\nالمشاركة',
+    contact_person:'كارينا غورناك', contact_role:'مديرة العروض', ext_lbl:'تحويل',
+    contact_org:'المنظم: Expo Fusion LLC\nالمكان: كروكوس إكسبو، جناح 3، قاعة 15\nكراسنوغورسك، منطقة موسكو،\nشارع ميجدوناروندنايا 20',
+    form_name:'اسمك', form_brand:'اسم العلامة التجارية', form_email:'البريد الإلكتروني', form_phone:'الهاتف',
+    form_format:'تنسيق العرض', form_format_ph:'اختر التنسيق...',
+    opt_opening:'عرض الافتتاح', opt_selected:'العرض المختار', opt_onebrand:'عرض علامة واحدة',
+    form_msg:'تعليق (اختياري)', form_submit:'إرسال الطلب',
+    form_ok:'تم إرسال طلبك! سنتواصل معك قريباً.',
+    media_label:'صور وفيديو', media_title:'مواد\nعلامتك التجارية',
+    media_intro:'يحصل كل مشارك على أرشيف صور وفيديو احترافي للعرض. مواد جاهزة لوسائل التواصل الاجتماعي والبيانات الصحفية.',
+    media_note:'الإنتاج الاحترافي مشمول في السعر',
+    gcard1:'كواليس', gcard2:'المنصة · عرض الافتتاح', gcard3:'العرض المختار · ٢٠٢٥', gcard4:'عرض علامة واحدة', gcard5:'CPM Fashion Stage · كروكوس إكسبو', gcard6:'صور صحفية · دقة عالية',
+    video_title:'CPM Fashion Stage · أفضل لحظات ٢٠٢٥',
+    md1_t:'صور احترافية', md1_d:'دقة عالية، جاهزة للنشر والبيانات الصحفية',
+    md2_t:'تسجيل فيديو العرض', md2_d:'تصوير كامل لعرضك مع مونتاج احترافي',
+    md3_t:'علاقات عامة وبيانات صحفية', md3_d:'علامتك التجارية مذكورة في المواد الصحفية الرسمية لـ CPM',
+    footer_copy:'© ٢٠٢٦ CPM Fashion Stage · Expo Fusion',
+    spots_opening:'تبقى 3 أماكن', spots_selected:'تبقى 5 أماكن', spots_onebrand:'تبقى مكانان',
+    db_label:'تنتهي صلاحية التقديم خلال', db_days:'يوم', db_hours:'ساعة', db_mins:'دقيقة', db_secs:'ثانية'
+  }
+};
+
+/* ─── QUIZ DATA ─── */
+const QUIZ = {
+  ru:{
+    label:'Подберите формат', title:'Какой показ\nдля вашего бренда?',
+    step:'Вопрос', of:'из', restart:'Пройти заново', your_format:'Ваш формат',
+    q:[
+      {q:'Сколько образов в вашей коллекции для показа?',
+       a:['До 10 образов','10–20 образов','30 и более образов'],
+       s:[[2,1,0],[0,2,1],[0,0,3]]},
+      {q:'Какова главная цель участия в показе?',
+       a:['Заявить о бренде — это наш первый показ','Встретиться с байерами и партнёрами','Провести эксклюзивное мероприятие'],
+       s:[[3,1,0],[1,2,1],[0,0,3]]},
+      {q:'Каков ваш опыт участия в показах?',
+       a:['Впервые участвуем в показе','Уже участвовали, хотим развиваться','Хотим максимальный статус и видимость'],
+       s:[[2,1,0],[0,2,1],[0,1,3]]},
+      {q:'Ваш бюджет на участие в показе?',
+       a:['До 120 000 ₽','До 250 000 ₽','Результат важнее бюджета'],
+       s:[[2,2,0],[0,1,3],[0,1,2]]}
+    ],
+    r:{
+      o:{name:'CPM Opening Show',desc:'Вы выходите первыми — сразу после открытия выставки. Максимальное внимание прессы и байеров в самый торжественный момент.',price:'105 600 ₽',vat:'с НДС'},
+      s:{name:'CPM Selected Show',desc:'Ежедневный показ среди отобранных брендов. Отличный баланс между охватом аудитории и стоимостью участия.',price:'105 600 ₽',vat:'с НДС'},
+      b:{name:'CPM One Brand Show',desc:'Весь зал — только ваш. Эксклюзивный показ для брендов, готовых сделать громкое заявление о себе.',price:'216 000 ₽',vat:'с НДС'}
+    }
+  },
+  en:{
+    label:'Find Your Format', title:'Which show\nfits your brand?',
+    step:'Question', of:'of', restart:'Start over', your_format:'Your Format',
+    q:[
+      {q:'How many looks are in your collection?',
+       a:['Up to 10 looks','10–20 looks','30 or more looks'],
+       s:[[2,1,0],[0,2,1],[0,0,3]]},
+      {q:'What is the main goal of your participation?',
+       a:["Introduce our brand — it's our first show",'Meet buyers and retail partners','Host an exclusive brand event'],
+       s:[[3,1,0],[1,2,1],[0,0,3]]},
+      {q:'What is your runway show experience?',
+       a:['First time at a runway show','Participated before, want to grow','We want maximum status and visibility'],
+       s:[[2,1,0],[0,2,1],[0,1,3]]},
+      {q:'What is your budget for the show?',
+       a:['Up to 120,000 ₽','Up to 250,000 ₽','Results matter more than budget'],
+       s:[[2,2,0],[0,1,3],[0,1,2]]}
+    ],
+    r:{
+      o:{name:'CPM Opening Show',desc:'You go first — right after the exhibition opening. Maximum attention from press and buyers at the most prestigious moment.',price:'105,600 ₽',vat:'VAT incl.'},
+      s:{name:'CPM Selected Show',desc:'A daily show among selected brands. The perfect balance between audience reach and participation cost.',price:'105,600 ₽',vat:'VAT incl.'},
+      b:{name:'CPM One Brand Show',desc:'The entire hall is yours alone. An exclusive show for brands ready to make a bold statement.',price:'216,000 ₽',vat:'VAT incl.'}
+    }
+  },
+  it:{
+    label:'Trova il Tuo Formato', title:'Quale show\nsi adatta al tuo brand?',
+    step:'Domanda', of:'di', restart:'Ricomincia', your_format:'Il Tuo Formato',
+    q:[
+      {q:'Quanti look ha la tua collezione?',
+       a:['Fino a 10 look','10–20 look','30 o più look'],
+       s:[[2,1,0],[0,2,1],[0,0,3]]},
+      {q:"Qual è l'obiettivo principale della partecipazione?",
+       a:['Presentare il brand — è il nostro primo show','Incontrare buyer e partner retail','Organizzare un evento esclusivo del brand'],
+       s:[[3,1,0],[1,2,1],[0,0,3]]},
+      {q:'Qual è la vostra esperienza con gli show?',
+       a:['Prima volta in passerella','Abbiamo già partecipato e vogliamo crescere','Vogliamo massimo status e visibilità'],
+       s:[[2,1,0],[0,2,1],[0,1,3]]},
+      {q:'Qual è il vostro budget?',
+       a:['Fino a 120.000 ₽','Fino a 250.000 ₽','Il risultato conta più del budget'],
+       s:[[2,2,0],[0,1,3],[0,1,2]]}
+    ],
+    r:{
+      o:{name:'CPM Opening Show',desc:"Siete i primi — subito dopo l'apertura della fiera. Massima attenzione dalla stampa e dai buyer nel momento più prestigioso.",price:'105.600 ₽',vat:'IVA incl.'},
+      s:{name:'CPM Selected Show',desc:'Uno show quotidiano tra brand selezionati. Il perfetto equilibrio tra visibilità e costo di partecipazione.',price:'105.600 ₽',vat:'IVA incl.'},
+      b:{name:'CPM One Brand Show',desc:"L'intera sala è solo tua. Uno show esclusivo per brand pronti a fare una dichiarazione audace.",price:'216.000 ₽',vat:'IVA incl.'}
+    }
+  },
+  tr:{
+    label:'Formatınızı Bulun', title:'Markanıza uygun\ngösteri hangisi?',
+    step:'Soru', of:'/', restart:'Yeniden başla', your_format:'Sizin Formatınız',
+    q:[
+      {q:'Koleksiyonunuzda kaç look var?',
+       a:["10'a kadar look",'10–20 look','30 veya daha fazla look'],
+       s:[[2,1,0],[0,2,1],[0,0,3]]},
+      {q:'Katılımın ana amacı nedir?',
+       a:['Markamızı tanıtmak — ilk gösterimiz','Alıcılar ve perakende ortaklarıyla buluşmak','Özel bir marka etkinliği düzenlemek'],
+       s:[[3,1,0],[1,2,1],[0,0,3]]},
+      {q:'Podyum deneyiminiz nedir?',
+       a:['İlk kez katılıyoruz','Daha önce katıldık, büyümek istiyoruz','Maksimum statü ve görünürlük istiyoruz'],
+       s:[[2,1,0],[0,2,1],[0,1,3]]},
+      {q:'Bütçeniz nedir?',
+       a:["120.000 ₽'ye kadar","250.000 ₽'ye kadar",'Sonuç bütçeden önemli'],
+       s:[[2,2,0],[0,1,3],[0,1,2]]}
+    ],
+    r:{
+      o:{name:'CPM Opening Show',desc:'Siz ilk çıkıyorsunuz — fuarın açılışından hemen sonra. En prestijli anda basından ve alıcılardan maksimum ilgi.',price:'105.600 ₽',vat:'KDV dahil'},
+      s:{name:'CPM Selected Show',desc:'Seçilmiş markalar arasında günlük gösteri. Kitle erişimi ile katılım maliyeti arasında mükemmel denge.',price:'105.600 ₽',vat:'KDV dahil'},
+      b:{name:'CPM One Brand Show',desc:'Tüm salon sadece sizin. Cesur bir açıklama yapmaya hazır markalar için özel gösteri.',price:'216.000 ₽',vat:'KDV dahil'}
+    }
+  },
+  zh:{
+    label:'找到您的格式', title:'哪种展示\n适合您的品牌？',
+    step:'问题', of:'/', restart:'重新开始', your_format:'您的格式',
+    q:[
+      {q:'您的系列有多少套造型？',
+       a:['10套以内','10-20套','30套及以上'],
+       s:[[2,1,0],[0,2,1],[0,0,3]]},
+      {q:'参与展示的主要目标是什么？',
+       a:['推介品牌——这是我们的首次展示','与买家和零售合作伙伴会面','举办品牌专属活动'],
+       s:[[3,1,0],[1,2,1],[0,0,3]]},
+      {q:'您的走秀经验如何？',
+       a:['首次参与走秀','曾经参与，希望进一步发展','希望获得最高知名度和曝光度'],
+       s:[[2,1,0],[0,2,1],[0,1,3]]},
+      {q:'您的参与预算是多少？',
+       a:['12万₽以内','25万₽以内','效果比预算更重要'],
+       s:[[2,2,0],[0,1,3],[0,1,2]]}
+    ],
+    r:{
+      o:{name:'CPM 开幕秀',desc:'您第一个登场——紧随展览开幕式之后。在最重要的时刻获得媒体和买家的最大关注。',price:'105,600 ₽',vat:'含税'},
+      s:{name:'CPM 精选秀',desc:'精选品牌的每日展示。在受众覆盖与参与成本之间取得完美平衡。',price:'105,600 ₽',vat:'含税'},
+      b:{name:'CPM 单品牌秀',desc:'整个展厅只属于您。专为准备大放异彩的品牌量身打造的专属展示。',price:'216,000 ₽',vat:'含税'}
+    }
+  },
+  ar:{
+    label:'اعثر على تنسيقك', title:'أي عرض\nيناسب علامتك التجارية؟',
+    step:'السؤال', of:'من', restart:'ابدأ من جديد', your_format:'تنسيقك',
+    q:[
+      {q:'كم عدد الإطلالات في مجموعتك؟',
+       a:['حتى 10 إطلالات','10-20 إطلالة','30 إطلالة أو أكثر'],
+       s:[[2,1,0],[0,2,1],[0,0,3]]},
+      {q:'ما الهدف الرئيسي من المشاركة؟',
+       a:['تقديم علامتنا — هذا أول عرض لنا','لقاء المشترين وشركاء التجزئة','إقامة فعالية حصرية للعلامة التجارية'],
+       s:[[3,1,0],[1,2,1],[0,0,3]]},
+      {q:'ما خبرتكم في عروض الأزياء؟',
+       a:['للمرة الأولى في عرض أزياء','شاركنا من قبل ونريد التطور','نريد أقصى مكانة وظهور'],
+       s:[[2,1,0],[0,2,1],[0,1,3]]},
+      {q:'ما هو ميزانيتكم للعرض؟',
+       a:['حتى 120,000 ₽','حتى 250,000 ₽','النتيجة أهم من الميزانية'],
+       s:[[2,2,0],[0,1,3],[0,1,2]]}
+    ],
+    r:{
+      o:{name:'CPM Opening Show',desc:'أنتم الأوائل — مباشرة بعد افتتاح المعرض. أقصى اهتمام من الصحافة والمشترين في أكثر اللحظات بهاءً.',price:'105,600 ₽',vat:'شامل الضريبة'},
+      s:{name:'CPM Selected Show',desc:'عرض يومي بين العلامات المختارة. التوازن المثالي بين الوصول إلى الجمهور وتكلفة المشاركة.',price:'105,600 ₽',vat:'شامل الضريبة'},
+      b:{name:'CPM One Brand Show',desc:'القاعة بأكملها لك وحدك. عرض حصري للعلامات التجارية المستعدة لإطلاق بيان جريء.',price:'216,000 ₽',vat:'شامل الضريبة'}
+    }
+  }
+};
+
+let currentLang = 'ru';
+
+function setLang(lang) {
+  currentLang = lang;
+  const d = T[lang];
+  const html = document.documentElement;
+
+  // direction & lang attr
+  html.setAttribute('lang', lang);
+  html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+  // update all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (!d[key]) return;
+    // section titles need <br> for newlines
+    const val = d[key].replace(/\n/g, '<br>');
+    el.innerHTML = val;
+  });
+
+  // update lang buttons
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+
+  // reset form success message
+  document.getElementById('form-success').style.display = 'none';
+  document.getElementById('contact-form').style.display = 'flex';
+
+  // rebuild gallery tabs in new language
+  buildGalleryTabs(lang);
+  quizInit(lang);
+}
+
+// Language switcher
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => setLang(btn.dataset.lang));
+});
+
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// Fade-in on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Form submit
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const fd = new FormData(this);
+  const name    = fd.get('name')    || '';
+  const brand   = fd.get('brand')   || '';
+  const email   = fd.get('email')   || '';
+  const phone   = fd.get('phone')   || '';
+  const format  = fd.get('format')  || '';
+  const message = fd.get('message') || '';
+
+  const subject = encodeURIComponent(`CPM Fashion Stage 2026 — ${brand}`);
+  const body = encodeURIComponent(
+    `Имя: ${name}\nБренд: ${brand}\nEmail: ${email}\nТелефон: ${phone}\nФормат: ${format}\n\n${message}`
+  );
+  window.location.href = `mailto:GornakK@expo-fusion.ru?subject=${subject}&body=${body}`;
+
+  this.style.display = 'none';
+  const ok = document.getElementById('form-success');
+  ok.style.display = 'block';
+});
+
+// ═══════════════════════════════════════
+// GALLERY DATA
+// ═══════════════════════════════════════
+const GALLERIES = [
+  { id:'opening',      path:'PHOTO & VIDEO/Opening show/web',
+    files:['0079_BAB0452.jpg','0086_BAB0478.jpg','0103_BAB0538.jpg','0133_BAB0624.jpg',
+           '0145_BAB0657.jpg','0181_BAB0784.jpg','0216_BAB0881.jpg','0220_BAB8485.jpg'] },
+  { id:'selected',     path:'PHOTO & VIDEO/Selected/web',
+    files:['0228_BAB0913.jpg','0244_BAB0963.jpg','0249_BAB0982.jpg','0286_BAB1079.jpg',
+           '0289_BAB1086.jpg','0311_BAB1164.jpg','0329_BAB1221.jpg','0376_BAB1353.jpg',
+           '0383_BAB1372.jpg','0405_BAB1437.jpg','0464_BAB1614.jpg'] },
+  { id:'onebrand',     path:'PHOTO & VIDEO/One brand show/web',
+    files:['0543_BAB1838.jpg','0555_BAB1870.jpg','0580_BAB1950.jpg','0670_BAB8567.jpg',
+           '0675_BAB8207.jpg','0695_BAB8270.jpg','0702_BAB8287.jpg','0849_BAB9083 1.jpg',
+           '0850_BAB9093 1.jpg','0851_BAB9096 1.jpg','1745_BAB5576.jpg','1755_BAB5611.jpg',
+           '1778_BAB5679.jpg','1782_BAB5695.jpg'] },
+  { id:'menswear',     path:'PHOTO & VIDEO/Menswear/web',
+    files:['1320_BAB4062.jpg','1324_BAB4080.jpg','1338_BAB4133.jpg','1359_BAB4206.jpg',
+           '1384_BAB4319.jpg','1420_BAB4443.jpg','1445_BAB4541.jpg','1465_BAB4603.jpg',
+           '1474_BAB4635.jpg','1477_BAB4654.jpg','1508_BAB4758.jpg','1521_BAB4802.jpg'] },
+  { id:'kids',         path:'PHOTO & VIDEO/Kids show',
+    files:['FU1A0055.jpg','FU1A0313.jpg','FU1A0473.jpg','FU1A0517.jpg','FU1A0568.jpg',
+           'FU1A0795.jpg','FU1A0873.jpg','LSHE-06-Choupette-4023.jpg',
+           'LSHE-06-Choupette-4365.jpg','LSHE-06-Choupette-4822.jpg'] },
+  { id:'dreams',       path:'PHOTO & VIDEO/DREAMS',
+    files:['1432_BAB9426 1.jpg','1433_BAB9428 1.jpg','1441_BAB9471 1.jpg','1458_BAB9523 1.jpg',
+           '1470_BAB9269 2.jpg','1488_BAB9320 2.jpg','1522_BAB9792 1.jpg','1534_BAB9829 1.jpg',
+           '1665_BAB0337 1.jpg','1724_BAB0505 1.jpg'] },
+  { id:'designerpool', path:'PHOTO & VIDEO/Designerpool/web',
+    files:['0538_BAB8542.jpg','0687_BAB2297.jpg','0711_BAB2361.jpg','0848_BAB2758.jpg',
+           '0856_BAB2782.jpg','0894_BAB2896.jpg','0922_BAB2973.jpg','1158_BAB3419.jpg',
+           '1159_BAB9800.jpg','1170_BAB9833.jpg','1176_BAB3490.jpg','1183_BAB3518.jpg',
+           '1183_BAB9868.jpg','1224_BAB3681.jpg','1279_BAB3927.jpg'] },
+  { id:'backstage',    path:'PHOTO & VIDEO/Backstage',
+    files:['1664_BAB8790.jpg','3R2A1971.jpg','3R2A2008.jpg','3R2A2031.jpg',
+           '9G0A5007.jpg','9G0A5271.jpg','9G0A6479.jpg','9G0A6577.jpg'] }
+];
+
+const GALLERY_LABELS = {
+  opening:     { ru:'Opening Show',  en:'Opening Show',  it:'Opening Show',  tr:'Opening Show',       zh:'Opening Show', ar:'Opening Show' },
+  selected:    { ru:'Selected Show', en:'Selected Show', it:'Selected Show', tr:'Selected Show',      zh:'Selected Show', ar:'Selected Show' },
+  onebrand:    { ru:'One Brand Show',en:'One Brand Show',it:'One Brand Show',tr:'One Brand Show',    zh:'One Brand Show',ar:'One Brand Show' },
+  menswear:    { ru:'Menswear',      en:'Menswear',      it:'Uomo',          tr:'Erkek Moda',          zh:'男装',          ar:'أزياء الرجال' },
+  kids:        { ru:'Kids Show',     en:'Kids Show',     it:'Kids Show',     tr:'Çocuk Gösterisi',     zh:'童装秀',        ar:'عرض الأطفال' },
+  dreams:      { ru:'DREAMS',        en:'DREAMS',        it:'DREAMS',        tr:'DREAMS',              zh:'DREAMS',        ar:'DREAMS' },
+  designerpool:{ ru:'Designerpool',  en:'Designerpool',  it:'Designerpool',  tr:'Designerpool',        zh:'Designerpool',  ar:'Designerpool' },
+  backstage:   { ru:'Backstage',     en:'Backstage',     it:'Backstage',     tr:'Sahne Arkası',        zh:'后台',          ar:'كواليس' }
+};
+
+// Encode path for use in img.src (spaces → %20, & → %26)
+function encodePath(str) {
+  return str.replace(/&/g, '%26').replace(/ /g, '%20');
+}
+
+// Build photo grids (once on load)
+function buildPhotoGrids() {
+  GALLERIES.forEach(g => {
+    const grid = document.getElementById('grid-' + g.id);
+    if (!grid) return;
+    g.files.forEach((file, idx) => {
+      const item = document.createElement('div');
+      item.className = 'photo-item';
+      const img = document.createElement('img');
+      img.src = encodePath(g.path) + '/' + encodePath(file);
+      img.alt = g.id + ' ' + (idx + 1);
+      img.loading = 'lazy';
+      item.addEventListener('click', () => openLightbox(g.id, idx));
+      item.appendChild(img);
+      grid.appendChild(item);
+    });
+  });
+}
+
+// Build tabs (called on each lang change)
+function buildGalleryTabs(lang) {
+  const tabsEl = document.getElementById('g-tabs');
+  if (!tabsEl) return;
+  tabsEl.innerHTML = '';
+  GALLERIES.forEach((g, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'g-tab' + (i === 0 ? ' active' : '');
+    btn.dataset.id = g.id;
+    btn.textContent = (GALLERY_LABELS[g.id] && GALLERY_LABELS[g.id][lang]) || g.id;
+    btn.addEventListener('click', () => switchGallery(g.id));
+    tabsEl.appendChild(btn);
+  });
+}
+
+function switchGallery(id) {
+  document.querySelectorAll('.g-tab').forEach(t => t.classList.toggle('active', t.dataset.id === id));
+  document.querySelectorAll('.g-panel').forEach(p => p.classList.toggle('active', p.id === 'g-' + id));
+}
+
+// ─── LIGHTBOX ───
+let lbGalId = 'opening';
+let lbIdx   = 0;
+
+function openLightbox(galId, idx) {
+  lbGalId = galId;
+  lbIdx   = idx;
+  showLbPhoto();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function showLbPhoto() {
+  const g = GALLERIES.find(g => g.id === lbGalId);
+  const src = encodePath(g.path) + '/' + encodePath(g.files[lbIdx]);
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb-counter').textContent = (lbIdx + 1) + ' / ' + g.files.length;
+}
+function lbMove(dir) {
+  const g = GALLERIES.find(g => g.id === lbGalId);
+  lbIdx = (lbIdx + dir + g.files.length) % g.files.length;
+  showLbPhoto();
+}
+document.getElementById('lb-close').addEventListener('click', closeLightbox);
+document.getElementById('lb-prev').addEventListener('click', () => lbMove(-1));
+document.getElementById('lb-next').addEventListener('click', () => lbMove(+1));
+document.getElementById('lightbox').addEventListener('click', e => { if (e.target === e.currentTarget) closeLightbox(); });
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape')      closeLightbox();
+  if (e.key === 'ArrowLeft')   lbMove(-1);
+  if (e.key === 'ArrowRight')  lbMove(+1);
+});
+
+// Build grids once
+buildPhotoGrids();
+
+
+/* ─────────────────────────────────────
+   QUIZ LOGIC
+───────────────────────────────────── */
+let qState = { lang:'ru', idx:0, scores:{o:0,s:0,b:0} };
+
+function quizInit(lang) {
+  const Q = QUIZ[lang] || QUIZ.ru;
+  qState = { lang, idx:0, scores:{o:0,s:0,b:0} };
+
+  // Section header
+  const lbl = document.getElementById('quiz-section-label');
+  const ttl = document.getElementById('quiz-section-title');
+  if (lbl) lbl.textContent = Q.label;
+  if (ttl) ttl.innerHTML = Q.title.replace(/\n/g,'<br>');
+
+  // Restart button text
+  const rb = document.getElementById('quiz-restart');
+  if (rb) rb.textContent = Q.restart;
+
+  // Reset UI
+  const result = document.getElementById('quiz-result');
+  const card   = document.getElementById('quiz-card');
+  const stepEl = document.getElementById('quiz-step');
+  const prog   = document.querySelector('.quiz-progress');
+  if (result) result.classList.remove('show');
+  if (card)   { card.style.display=''; card.classList.remove('hide'); }
+  if (stepEl) stepEl.style.display='';
+  if (prog)   prog.style.display='';
+
+  // Apply button
+  const qrCta = document.getElementById('qr-cta');
+  if (qrCta) qrCta.textContent = (T[lang]||T.ru).apply_btn || 'Apply';
+
+  quizShow();
+}
+
+function quizShow() {
+  const Q   = QUIZ[qState.lang] || QUIZ.ru;
+  const idx = qState.idx;
+  const total = Q.q.length;
+
+  // Progress bar
+  const fill = document.getElementById('quiz-fill');
+  if (fill) fill.style.width = ((idx + 1) / total * 100) + '%';
+
+  // Step label
+  const stepEl = document.getElementById('quiz-step');
+  if (stepEl) stepEl.textContent = Q.step + ' ' + (idx + 1) + ' ' + Q.of + ' ' + total;
+
+  // Question text
+  const qEl = document.getElementById('quiz-q');
+  if (qEl) qEl.textContent = Q.q[idx].q;
+
+  // Options
+  const optsEl = document.getElementById('quiz-opts');
+  if (!optsEl) return;
+  optsEl.innerHTML = '';
+  ['A','B','C'].forEach((lt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-opt';
+    btn.innerHTML = '<span class="quiz-opt-lt">' + lt + '</span>' + Q.q[idx].a[i];
+    btn.addEventListener('click', () => quizAnswer(i));
+    optsEl.appendChild(btn);
+  });
+
+  // Animate in
+  const card = document.getElementById('quiz-card');
+  if (card) card.classList.remove('hide');
+}
+
+function quizAnswer(i) {
+  const Q = QUIZ[qState.lang] || QUIZ.ru;
+  const sc = Q.q[qState.idx].s[i];
+  qState.scores.o += sc[0];
+  qState.scores.s += sc[1];
+  qState.scores.b += sc[2];
+
+  const card = document.getElementById('quiz-card');
+  if (card) card.classList.add('hide');
+
+  setTimeout(() => {
+    qState.idx++;
+    if (qState.idx < Q.q.length) {
+      quizShow();
+    } else {
+      quizResult();
+    }
+  }, 280);
+}
+
+function quizResult() {
+  const Q = QUIZ[qState.lang] || QUIZ.ru;
+  const {o, s, b} = qState.scores;
+  let key = 'o';
+  if (s > o && s >= b) key = 's';
+  else if (b > o && b > s) key = 'b';
+  const res = Q.r[key];
+
+  // Hide card + step
+  const card   = document.getElementById('quiz-card');
+  const stepEl = document.getElementById('quiz-step');
+  const prog   = document.querySelector('.quiz-progress');
+  if (card)   card.style.display = 'none';
+  if (stepEl) stepEl.style.display = 'none';
+  if (prog)   prog.style.display = 'none';
+
+  // Show result
+  document.getElementById('qr-eyebrow').textContent = Q.your_format;
+  document.getElementById('qr-name').textContent    = res.name;
+  document.getElementById('qr-desc').textContent    = res.desc;
+  document.getElementById('qr-price').innerHTML     = '<strong>' + res.price + '</strong> ' + res.vat;
+
+  const result = document.getElementById('quiz-result');
+  if (result) result.classList.add('show');
+
+  // Pre-fill contact form format
+  const sel = document.getElementById('form-format-sel');
+  if (sel) {
+    const map = {o:'opening', s:'selected', b:'onebrand'};
+    sel.value = map[key] || '';
+  }
+
+  setTimeout(() => {
+    result.scrollIntoView({behavior:'smooth', block:'center'});
+  }, 100);
+}
+
+document.getElementById('quiz-restart').addEventListener('click', () => {
+  quizInit(qState.lang);
+});
+
+/* ─────────────────────────────────────
+   DEADLINE COUNTDOWN TIMER
+───────────────────────────────────── */
+(function () {
+  const DEADLINE = new Date('2026-08-15T23:59:59+03:00').getTime();
+
+  function tick() {
+    const diff = DEADLINE - Date.now();
+    if (diff <= 0) {
+      const bar = document.getElementById('db-bar');
+      if (bar) bar.remove();
+      return;
+    }
+    const pad = n => String(n).padStart(2, '0');
+    document.getElementById('db-d').textContent = pad(Math.floor(diff / 864e5));
+    document.getElementById('db-h').textContent = pad(Math.floor((diff % 864e5) / 36e5));
+    document.getElementById('db-m').textContent = pad(Math.floor((diff % 36e5) / 6e4));
+    document.getElementById('db-s').textContent = pad(Math.floor((diff % 6e4) / 1e3));
+  }
+
+  tick();
+  setInterval(tick, 1000);
+
+  // Show bar after 3 sec
+  setTimeout(() => {
+    const bar = document.getElementById('db-bar');
+    if (bar) bar.classList.add('show');
+  }, 3000);
+
+  // Close button
+  document.getElementById('db-x').addEventListener('click', () => {
+    const bar = document.getElementById('db-bar');
+    if (bar) { bar.classList.remove('show'); setTimeout(() => bar.remove(), 400); }
+  });
+})();
+
+// Init
+setLang('ru');
+</script>
+
+</body>
+</html>
